@@ -7,7 +7,7 @@ import headerLogo from "../../assets/headerLogo.svg"
 const Header = () => {
     return (
         <>
-            <div className={"flex justify-around items-center bg-[#444C37] p-2"}>
+            <div className={"flex justify-around items-center bg-[#444C37] p-2 "}>
                 <div className={""}>
                     <img src={headerLogo} alt="asd"/>
                 </div>

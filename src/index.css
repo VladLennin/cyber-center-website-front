@@ -31,3 +31,8 @@
 .proba-pro-light{
     font-family: "Proba Pro Light";
 }
+
+.footer button:hover{
+    scale:1.1;
+    transition: 250ms;
+}
