@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import Store from "./store/store";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 interface State {
     store: Store;
