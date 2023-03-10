@@ -4,9 +4,10 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 
-interface WrapperProps{
+interface WrapperProps {
     children: React.ReactNode
 }
+
 const Wrapper: FC<WrapperProps> = ({children}) => {
     return (
         <>
