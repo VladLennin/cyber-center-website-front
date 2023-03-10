@@ -13,6 +13,7 @@ const AppRouter = () => {
             {/*<Route path={RoutesName.MAIN_PAGE} element={}/>*/}
 
             {/*<Route element={<RequireRole allowedRole={Roles.ADMIN}/>}>*/}
+                <Route path={"/"} element={<div>some page</div>}/>
 
             {/*</Route>*/}
 
