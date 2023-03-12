@@ -12,10 +12,10 @@ const RequireRole: FC<RequireRolesProps> = ({allowedRole}) => {
     const {store} = useContext(Context)
     const location = useLocation()
     return (
-        store?.user?.role === allowedRole
-            ?
-            <Outlet/>
-            :
+        // store?.user?.role === allowedRole
+        //     ?
+        //     <Outlet/>
+            // :
             <Navigate to={RoutesName.UNAUTHORIZED} state={{from: location}} replace/>
     );
 };

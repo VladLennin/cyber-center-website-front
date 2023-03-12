@@ -6,7 +6,7 @@ interface MainProps {
 
 const Main: FC<MainProps> = ({children}) => {
     return (
-        <div className={"min-h-[77vh]"}>
+        <div className={"min-h-[77vh] pb-[8vh]"}>
             {children}
         </div>
     );
