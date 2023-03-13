@@ -2,7 +2,6 @@ import $api from "../http";
 import axios, {AxiosResponse} from "axios"
 import {AuthResponse} from "../models/responce/Authresponce";
 import {IUser} from "../models/IUser";
-import Cookies from 'js-cookie';
 
 export default class AuthService {
     static async registration(user: IUser): Promise<AxiosResponse<AuthResponse>> {

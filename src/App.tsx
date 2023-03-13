@@ -18,14 +18,6 @@ function App() {
         }
     }, [])
 
-
-    if(!store.isAuth){
-        return (
-            <Wrapper>
-                <RegistrationPage/>
-            </Wrapper>
-        )
-    }
     return (
 
         <Wrapper>

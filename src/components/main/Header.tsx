@@ -22,20 +22,12 @@ const Header = () => {
     const [pzFlag1, setPzFlag1] = useState<boolean>(false);
     const [pzFlag2, setPzFlag2] = useState<boolean>(false);
     const {store} = useContext(Context)
-    const [modal, setModal] = useState(false);
     const navigate = useNavigate()
 
-    const closeModal = () => {
-        setModal(false)
-    };
-
-    const openModal = () => {
-        setModal(true)
-    };
 
     return (
         <>
-            <LoginModal modal={modal} closeModal={closeModal}/>
+            <LoginModal modal={store.modalLogin}/>
             <div id={"header"} className={"flex justify-around items-center bg-[#444C37] p-2 "}>
                 <div className={""}>
                     <img src={headerLogo} alt="asd"/>
@@ -78,7 +70,7 @@ const Header = () => {
                                 </Link>
                             </button>
 
-                            <button onClick={() => openModal()}
+                            <button onClick={() => store.openModalLogin()}
                                     className={"border border-white border-[1.5px] rounded-[150px] w-[100px] h-[35px]  hover:border-[#AF8742] hover:text-[#AF8742] duration-200"}>
                                 Вхід
                             </button>
@@ -168,6 +160,17 @@ const Header = () => {
                         Контакти
                     </button>
                 </Link>
+
+
+                {store.userRoles.includes("ADMIN")
+                    &&
+                    <Link className={" hover:text-[#AF8742] duration-200"} to={RoutesName.ADMIN_PAGE}>
+                        <button>
+                            Адмін Панель
+                        </button>
+                    </Link>
+                }
+
             </div>
 
 

@@ -15,7 +15,7 @@ const RequireAuth: FC<AuthProps> = ({}) => {
             ?
             <Outlet/>
             :
-            <Navigate to={RoutesName.LOGIN_PAGE} state={{from: location}} replace/>
+            <Navigate to={RoutesName.REGISTRATION_PAGE} state={{from: location}} replace/>
     )
 };
 

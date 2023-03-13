@@ -3,21 +3,25 @@ import {Navigate, Outlet, useLocation} from "react-router-dom";
 import {RoutesName} from "./RoutesName";
 import {Context} from "../index";
 import {Roles} from "../models/Roles";
+import {observer} from "mobx-react-lite";
+import {IUser} from "../models/IUser";
 
 interface RequireRolesProps {
-    allowedRole: Roles
+    allowedRole: string
 }
 
 const RequireRole: FC<RequireRolesProps> = ({allowedRole}) => {
     const {store} = useContext(Context)
     const location = useLocation()
+    console.log(store.userRoles.filter(role => role === allowedRole).length >= 1)
+    console.log(store.userRoles)
     return (
-        // store?.user?.role === allowedRole
-        //     ?
-        //     <Outlet/>
-            // :
+        store.userRoles.includes(allowedRole)
+            ?
+            <Outlet/>
+            :
             <Navigate to={RoutesName.UNAUTHORIZED} state={{from: location}} replace/>
     );
 };
 
-export default RequireRole;
+export default observer(RequireRole);

@@ -9,8 +9,11 @@ import UserService from "../service/UserService";
 
 export default class Store {
     user = {} as IUser
+
+    userRoles: string[] = []
     isAuth = false;
-    isLoading = false
+    isLoading = false;
+    modalLogin = false;
 
 
     constructor() {
@@ -25,8 +28,24 @@ export default class Store {
         this.user = user;
     }
 
+    setUserRole(roles: string[]) {
+        this.userRoles = roles
+    }
+
     setLoading(bool: boolean) {
         this.isLoading = bool;
+    }
+
+    setModalLogin(bool: boolean) {
+        this.modalLogin = bool;
+    }
+
+    closeModalLogin() {
+        this.modalLogin = false;
+    }
+
+    openModalLogin() {
+        this.modalLogin = true;
     }
 
     async login(email: string, password: string) {
@@ -35,6 +54,13 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
             this.setUser(response.data.user)
+
+            let roles: string[] = []
+            response.data.user.roles.map(role => {
+                roles.push(role.value)
+            })
+            this.setUserRole(roles)
+
             return response
         } catch (e) {
             throw e
@@ -48,6 +74,13 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
             this.setUser(response.data.user)
+
+            let roles: string[] = []
+            response.data.user.roles.map(role => {
+                roles.push(role.value)
+            })
+            this.setUserRole(roles)
+
             return response
         } catch (e) {
             throw e
@@ -62,6 +95,7 @@ export default class Store {
             localStorage.removeItem('token')
             this.setAuth(false)
             this.setUser({} as IUser)
+            this.setUserRole([])
             return response
         } catch (e) {
             console.log(e)
@@ -77,6 +111,13 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
             this.setUser(response.data.user)
+
+            let roles: string[] = []
+            response.data.user.roles.map(role => {
+                roles.push(role.value)
+            })
+            this.setUserRole(roles)
+
             return location
         } catch (e) {
             console.log(e)

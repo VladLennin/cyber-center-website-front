@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FishingPage = () => {
+const AdminPage = () => {
     return (
         <div>
-            FishingPage
+            AdminPage
         </div>
     );
 };
 
-export default FishingPage;
+export default AdminPage;

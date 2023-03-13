@@ -1,6 +1,7 @@
 import {Roles} from "./Roles";
 import {MilitaryRank} from "./enum/MilitaryRank";
 import {ShipRanks} from "./enum/ShipRanks";
+import {IRole} from "./IRole";
 
 export interface IUser {
     id: number;
@@ -13,6 +14,8 @@ export interface IUser {
     fatherhood: string;
     contactNumber: string;
     unit: string;
-    roles: Roles;
+    roles: IRole[];
+
+
 
 }

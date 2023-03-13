@@ -175,11 +175,12 @@ const RegistrationPage:FC = () => {
                     } className={"border rounded px-2 py-1 ml-2"} placeholder={"A0000"} type="text"/>
                 </div>
 
-                <div className={"flex justify-center mt-2 items-center"}>
+                <div className={"flex flex-col justify-center mt-2 items-center"}>
                     <button onClick={registration}
                             className={"bg-[#444C37] text-white px-3 py-2 rounded-[150px] hover:text-[#AF8742] duration-200"}>
                         Зареєструватись
                     </button>
+                    <button onClick={() => store.openModalLogin()} className={"mt-1 text-sm"}>Маєте профіль?</button>
                 </div>
 
             </div>

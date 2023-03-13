@@ -3,7 +3,7 @@ export enum RoutesName {
     UNAUTHORIZED = "/unauthorized",
     REGISTRATION_PAGE = "/registration",
     MAIN_PAGE = "/",
-
+    ADMIN_PAGE = "/admin",
     ANTIVIRUSES_PAGE = "/ant",
     UPDATES_PAGE = "/update",
     ADDITIONAL_PZ = "/additional",
@@ -13,7 +13,7 @@ export enum RoutesName {
     NEWS_PAGE = "/news",
     CONTACTS_PAGE = "/contacts",
     FAQ = "/faq",
-    LAW_BASE = "/law-base" ,
+    LAW_BASE = "/law-base",
     SIGNAL = "/signal",
     PROFILE_PAGE = "/profile"
 
