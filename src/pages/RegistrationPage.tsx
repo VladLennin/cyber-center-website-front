@@ -48,7 +48,7 @@ const RegistrationPage:FC = () => {
         setErrors([])
     }, [newUser])
     return (
-        <div className={"flex justify-center items-center flex-col mt-4"}>
+        <div className={"flex justify-center items-center flex-col mt-4 mb-10"}>
             <div className={"proba-pro-bold text-[6vh]"}>
                 Реєстрація
             </div>

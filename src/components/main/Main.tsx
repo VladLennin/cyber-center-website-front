@@ -1,14 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 
 interface MainProps {
     children: React.ReactNode
 }
 
 const Main: FC<MainProps> = ({children}) => {
+
     return (
-        <div className={"min-h-[77vh] pb-[8vh]"}>
-            {children}
-        </div>
+        <>
+            <div className={"min-h-[77vh]"}>
+                {children}
+            </div>
+        </>
+
     );
 };
 

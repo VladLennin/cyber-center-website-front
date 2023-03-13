@@ -20,19 +20,23 @@
     url("./assets/fonts/proba-pro/ProbaPro-Light.otf") format("truetype");
 }
 
-.proba-pro-medium{
+.proba-pro-medium {
     font-family: "Proba Pro Medium";
 }
 
-.proba-pro-bold{
+.proba-pro-bold {
     font-family: "Proba Pro Bold";
 }
 
-.proba-pro-light{
+.proba-pro-light {
     font-family: "Proba Pro Light";
 }
 
-.footer button:hover{
-    scale:1.1;
+.footer button:hover {
+    scale: 1.1;
     transition: 250ms;
+}
+
+html {
+    scroll-behavior: smooth;
 }

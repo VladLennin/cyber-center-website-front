@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 // @ts-ignore
 import gerb from "./../../assets/Герб.svg"
 // @ts-ignore
@@ -13,16 +13,28 @@ import updatePz from "../../assets/Sim, Refresh, Update.svg"
 import vector from "../../assets/Vector.svg"
 import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
+import Modal from "../modals/Modal";
+import LoginModal from "../modals/LoginModal";
+import {Context} from "../../index";
 
 const Header = () => {
 
-    const [pzFlag1, setPzFlag1] = useState(false);
-    const [pzFlag2, setPzFlag2] = useState(false);
+    const [pzFlag1, setPzFlag1] = useState<boolean>(false);
+    const [pzFlag2, setPzFlag2] = useState<boolean>(false);
+    const {store} = useContext(Context)
+    const [modal, setModal] = useState(false);
+    const closeModal = () => {
+        setModal(false)
+    };
 
+    const openModal = () => {
+        setModal(true)
+    };
 
     return (
         <>
-            <div className={"flex justify-around items-center bg-[#444C37] p-2 "}>
+            <LoginModal modal={modal} closeModal={closeModal}/>
+            <div id={"header"} className={"flex justify-around items-center bg-[#444C37] p-2 "}>
                 <div className={""}>
                     <img src={headerLogo} alt="asd"/>
                 </div>
@@ -38,9 +50,13 @@ const Header = () => {
                         </Link>
                     </button>
 
-                    <button className={"border border-white border-[1.5px] rounded-[150px] w-[100px] h-[35px]"}>
+                    <button onClick={() => openModal()}
+                            className={"border border-white border-[1.5px] rounded-[150px] w-[100px] h-[35px]"}>
                         Вхід
                     </button>
+                    <button onClick={() => {
+                        store.logout()
+                    }}>logout</button>
                 </div>
             </div>
 
@@ -126,6 +142,8 @@ const Header = () => {
                     </button>
                 </Link>
             </div>
+
+
         </>
 
     );

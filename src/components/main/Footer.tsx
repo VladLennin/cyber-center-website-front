@@ -169,9 +169,9 @@ const Footer = () => {
                 </div>
 
                 <div className={"col-span-2 h-[100%] flex flex-col justify-center items-center"}>
-                    <button>
-                        <img src={topArrow} alt=""/>
-                    </button>
+                    <a href={"#header"} >
+                        <img src={topArrow}  alt=""/>
+                    </a>
                 </div>
             </div>
         </>

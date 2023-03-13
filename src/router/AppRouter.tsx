@@ -5,6 +5,7 @@ import {RoutesName} from "./RoutesName";
 import RequireAuth from "./RequireAuth";
 import RegistrationPage from "../pages/RegistrationPage";
 import MainPage from "../pages/MainPage";
+import ContactsPage from "../pages/ContactsPage";
 
 const AppRouter = () => {
 
@@ -21,9 +22,9 @@ const AppRouter = () => {
 
             {/*</Route>*/}
 
-            {/*<Route element={<RequireAuth/>}>*/}
-            {/*    <Route path={"/"} element={<div>some page</div>}/>*/}
-            {/*</Route>*/}
+            <Route element={<RequireAuth/>}>
+                <Route path={RoutesName.CONTACTS_PAGE} element={<ContactsPage/>}/>
+            </Route>
         </Routes>
     );
 };
