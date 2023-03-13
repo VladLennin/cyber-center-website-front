@@ -6,6 +6,8 @@ import RequireAuth from "./RequireAuth";
 import RegistrationPage from "../pages/RegistrationPage";
 import MainPage from "../pages/MainPage";
 import ContactsPage from "../pages/ContactsPage";
+import ProfilePage from "../pages/ProfilePage";
+import {observe} from "mobx";
 
 const AppRouter = () => {
 
@@ -23,7 +25,8 @@ const AppRouter = () => {
             {/*</Route>*/}
 
             <Route element={<RequireAuth/>}>
-                <Route path={RoutesName.CONTACTS_PAGE} element={<ContactsPage/>}/>
+                <Route path={RoutesName.PROFILE_PAGE} element={<ProfilePage/>}/>
+
             </Route>
         </Routes>
     );

@@ -1,6 +1,8 @@
 import React, {FC, useContext, useState} from 'react';
 import Modal from "./Modal";
 import {Context} from "../../index";
+import {useNavigate} from "react-router-dom";
+import {RoutesName} from "../../router/RoutesName";
 
 interface LoginProps {
     modal: boolean;
@@ -12,10 +14,15 @@ const LoginModal: FC<LoginProps> = ({modal, closeModal}) => {
     const [password, setPassword] = useState<string>("")
     const [email, setEmail] = useState<string>("")
     const {store} = useContext(Context)
+    const navigate = useNavigate()
     const login = () => {
         if (password.length > 0 && email.length > 0) {
             store.login(email, password).then(res => {
                 console.log(res)
+                if(res.status === 201){
+                    closeModal()
+                    navigate(RoutesName.MAIN_PAGE)
+                }
             }).catch(e => {
                 console.log(e)
             })

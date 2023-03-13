@@ -205,7 +205,7 @@ const MainPage: FC = () => {
                     <p>Новини</p>
                 </div>
                 <div className={"flex  flex-wrap"}>
-                    {news.slice(0, 4).map(n => (<NewsCard news={n}/>))}
+                    {news.slice(0, 4).map((n,index) => (<NewsCard key={index} news={n}/>))}
                 </div>
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
                     <button>

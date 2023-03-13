@@ -9,7 +9,7 @@ export default class AuthService {
         return $api.post<AuthResponse>('/auth/registration', {user})
     }
 
-    static async logout(): Promise<void> {
+    static async logout(): Promise<any> {
         return $api.post('/auth/logout')
     }
 

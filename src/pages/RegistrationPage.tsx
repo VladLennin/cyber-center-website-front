@@ -55,8 +55,8 @@ const RegistrationPage:FC = () => {
             <div className={"border p-10 rounded proba-pro-medium shadow-2xl"}>
                 {errors.length > 0 &&
                     <div className={"mb-5 text-red-800 flex justify-center"}>
-                        {errors.map(err => (
-                                <div className={"flex items-center border px-3 py-1 border-red-800 rounded"}>
+                        {errors.map((err,index)=> (
+                                <div key={index} className={"flex items-center border px-3 py-1 border-red-800 rounded"}>
                                     <p>{err}</p>
                                     <i className="bi bi-exclamation-triangle-fill ml-2"></i>
                                 </div>
@@ -93,18 +93,16 @@ const RegistrationPage:FC = () => {
 
                 <div>
                     <div className={"flex proba-pro-light text-gray-600 justify-around mb-3"}>
-                        <div className={"flex"}>
+                        <div className={"flex items-center"}>
                             <input onChange={() => setIsShipsRank(false)} checked={!isShipsRank} className={"mr-1"}
                                    id={"ranks"} name={"ranks"} type="radio"/><p>Армійські звання</p>
                         </div>
 
-                        <div className={"flex"}>
+                        <div className={"flex items-center"}>
                             <input onChange={() => setIsShipsRank(true)} checked={isShipsRank} className={"mr-1"}
                                    id={"ranks"} name={"ranks"} type="radio"/><p>Корабельні звання</p>
 
                         </div>
-                    </div>
-                    <div className={"flex"}>
                     </div>
                     {isShipsRank
                         ?
@@ -114,7 +112,7 @@ const RegistrationPage:FC = () => {
                                 className={"mb-4 px-2 py-1 rounded text-lg w-[100%]"} defaultValue={-1}>
                             <option disabled={true} value={-1}>Виберіть військове звання</option>
                             {Object.values(ShipRanks).map((rank, index) => (
-                                <option value={index}>{rank}</option>
+                                <option key={index} value={index}>{rank}</option>
                             ))}
 
                         </select>
@@ -125,7 +123,7 @@ const RegistrationPage:FC = () => {
                                 className={"mb-4 px-2 py-1 rounded text-lg w-[100%]"} defaultValue={-1}>
                             <option disabled={true} value={-1}>Виберіть військове звання</option>
                             {Object.values(MilitaryRank).map((rank, index) => (
-                                <option value={index}>{rank}</option>
+                                <option key={index} value={index}>{rank}</option>
                             ))}
 
                         </select>}
@@ -134,28 +132,28 @@ const RegistrationPage:FC = () => {
 
                 <div className={"h-[1.5px] bg-gray-600 px-10 mb-5"}></div>
 
-                <div className={"flex justify-between mb-2"}>
+                <div className={"flex justify-between mb-2 items-center"}>
                     <p>Прізвище</p>
                     <input onChange={(e) => {
                         setNewUser({...newUser, surname: e.target.value})
                     }
-                    } className={"border px-2 py-1 "} placeholder={"Прізвище"} type="text"/>
+                    } className={"border px-2 py-1 rounded"} placeholder={"Прізвище"} type="text"/>
                 </div>
 
-                <div className={"flex justify-between mb-2"}>
+                <div className={"flex justify-between mb-2 items-center"}>
                     <p>Імʼя</p>
                     <input onChange={(e) => {
                         setNewUser({...newUser, name: e.target.value})
                     }
-                    } className={"border px-2 py-1 "} placeholder={"Імʼя"} type="text"/>
+                    } className={"border px-2 py-1 rounded"} placeholder={"Імʼя"} type="text"/>
                 </div>
 
-                <div className={"flex justify-between mb-2"}>
+                <div className={"flex justify-between mb-2 items-center"}>
                     <p>Побатькові</p>
                     <input onChange={(e) => {
                         setNewUser({...newUser, fatherhood: e.target.value})
                     }
-                    } className={"border px-2 py-1 "} placeholder={"Побатькові"} type="text"/>
+                    } className={"border px-2 py-1 rounded"} placeholder={"Побатькові"} type="text"/>
                 </div>
 
                 <div className={"h-[1.5px] bg-gray-600 px-10 mb-5"}></div>
@@ -177,7 +175,7 @@ const RegistrationPage:FC = () => {
                     } className={"border rounded px-2 py-1 ml-2"} placeholder={"A0000"} type="text"/>
                 </div>
 
-                <div className={"flex justify-center mt-2"}>
+                <div className={"flex justify-center mt-2 items-center"}>
                     <button onClick={registration}
                             className={"bg-[#444C37] text-white px-3 py-2 rounded-[150px] hover:text-[#AF8742] duration-200"}>
                         Зареєструватись

@@ -3,7 +3,7 @@ import {MilitaryRank} from "./enum/MilitaryRank";
 import {ShipRanks} from "./enum/ShipRanks";
 
 export interface IUser {
-    id: string;
+    id: number;
     ipAddress: string;
     email: string;
     password: string;

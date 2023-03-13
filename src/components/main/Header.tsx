@@ -11,11 +11,11 @@ import programmingCode from "../../assets/programming-code.svg"
 import updatePz from "../../assets/Sim, Refresh, Update.svg"
 // @ts-ignore
 import vector from "../../assets/Vector.svg"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
-import Modal from "../modals/Modal";
 import LoginModal from "../modals/LoginModal";
 import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
 
 const Header = () => {
 
@@ -23,6 +23,8 @@ const Header = () => {
     const [pzFlag2, setPzFlag2] = useState<boolean>(false);
     const {store} = useContext(Context)
     const [modal, setModal] = useState(false);
+    const navigate = useNavigate()
+
     const closeModal = () => {
         setModal(false)
     };
@@ -44,19 +46,44 @@ const Header = () => {
                 </div>
 
                 <div className={"flex justify-between proba-pro-medium text-white"}>
-                    <button className={"mr-5"}>
-                        <Link to={RoutesName.REGISTRATION_PAGE}>
-                            Реєстрація
-                        </Link>
-                    </button>
 
-                    <button onClick={() => openModal()}
-                            className={"border border-white border-[1.5px] rounded-[150px] w-[100px] h-[35px]"}>
-                        Вхід
-                    </button>
-                    <button onClick={() => {
-                        store.logout()
-                    }}>logout</button>
+                    {store.isAuth ?
+                        <>
+                            <button className={"mr-5 hover:border-[#AF8742] hover:text-[#AF8742] duration-200"}>
+                                <Link className={"flex items-center"} to={RoutesName.PROFILE_PAGE}>
+                                    <p> {store.user.rank} {store.user.surname}</p>
+                                    <i className="text-3xl bi bi-person-square ml-2"></i>
+                                </Link>
+                            </button>
+
+                            <button onClick={() => {
+                                store.logout().then(res => {
+                                    console.log(res)
+                                }).catch(e => {
+                                    console.log(e)
+                                })
+                            }}
+                                    className={" hover:border-[#AF8742] hover:text-[#AF8742] duration-200 flex items-center justify-around border border-white border-[1.5px] rounded-[150px] py-2 px-4"}>
+                                <Link className={"flex items-center"} to={RoutesName.MAIN_PAGE}>
+                                    <p>Вийти</p>
+                                    <i className="bi bi-box-arrow-right ml-3"></i>
+                                </Link>
+                            </button>
+                        </>
+                        :
+                        <>
+                            <button className={"mr-5"}>
+                                <Link to={RoutesName.REGISTRATION_PAGE}>
+                                    Реєстрація
+                                </Link>
+                            </button>
+
+                            <button onClick={() => openModal()}
+                                    className={"border border-white border-[1.5px] rounded-[150px] w-[100px] h-[35px]  hover:border-[#AF8742] hover:text-[#AF8742] duration-200"}>
+                                Вхід
+                            </button>
+                        </>
+                    }
                 </div>
             </div>
 
@@ -149,4 +176,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default observer(Header);

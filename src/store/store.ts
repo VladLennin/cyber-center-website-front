@@ -4,6 +4,7 @@ import AuthService from "../service/AuthService";
 import axios from "axios";
 import {AuthResponse} from "../models/responce/Authresponce";
 import {API_URL} from "../http";
+import UserService from "../service/UserService";
 
 
 export default class Store {
@@ -57,9 +58,11 @@ export default class Store {
     async logout() {
         try {
             const response = await AuthService.logout()
+            console.log(response)
             localStorage.removeItem('token')
             this.setAuth(false)
             this.setUser({} as IUser)
+            return response
         } catch (e) {
             console.log(e)
         }
@@ -79,6 +82,15 @@ export default class Store {
             console.log(e)
         } finally {
             this.setLoading(false)
+        }
+    }
+
+    async editUser(field: string, value: any) {
+        try {
+            const response = await UserService.editUser(field, value, this.user.id)
+            return response
+        } catch (e) {
+            throw e
         }
     }
 

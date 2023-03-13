@@ -14,7 +14,8 @@ export enum RoutesName {
     CONTACTS_PAGE = "/contacts",
     FAQ = "/faq",
     LAW_BASE = "/law-base" ,
-    SIGNAL = "/signal"
+    SIGNAL = "/signal",
+    PROFILE_PAGE = "/profile"
 
 
 }
