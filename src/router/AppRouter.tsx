@@ -19,6 +19,7 @@ import AdditionalPZ from "../pages/PZpages/AdditionalPZ";
 import AntivirusesPZ from "../pages/PZpages/AntivirusesPZ";
 import UpdatePZ from "../pages/PZpages/UpdatePZ";
 import UnauthorizedPage from "../pages/UnauthorizedPage";
+import TestResultPage from "../pages/TestResultPage";
 
 const AppRouter = () => {
 
@@ -34,6 +35,7 @@ const AppRouter = () => {
             <Route path={RoutesName.MAIN_PAGE} element={<MainPage/>}/>
             <Route path={RoutesName.UNAUTHORIZED} element={<UnauthorizedPage/>}/>
             <Route path={RoutesName.CONTACTS_PAGE} element={<ContactsPage/>}/>
+            <Route path={RoutesName.TEST_RESULT_PAGE} element={<TestResultPage/>}/>
 
 
             <Route element={<RequireRole allowedRole={Roles.ADMIN.toString()}/>}>

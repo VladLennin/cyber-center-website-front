@@ -37,7 +37,7 @@ const LoginModal: FC<LoginProps> = ({modal}) => {
 
             <div className={"proba-pro-medium "}>
                 <div className={"flex justify-between mb-3"}>
-                    <p>Email</p>
+                    <p className={"text-xl"}>Email</p>
                     <input onChange={(e) => {
                         setEmail(e.target.value)
                     }
@@ -45,7 +45,7 @@ const LoginModal: FC<LoginProps> = ({modal}) => {
                 </div>
 
                 <div className={"flex justify-between mb-5"}>
-                    <p>Пароль</p>
+                    <p className={"text-xl"}>Пароль</p>
                     <input onChange={(e) => {
                         setPassword(e.target.value)
                     }

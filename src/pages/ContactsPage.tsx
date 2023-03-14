@@ -35,11 +35,34 @@ const ContactsPage = () => {
                     <div>
                         <p className={"text-xl proba-pro-light"}>
                             (62) 490-20
-                        </p >
+                        </p>
                         <p className={"text-xl proba-pro-light"}>
                             (62) 490-21
                         </p>
                     </div>
+                </div>
+
+                <div className={"h-[1.5px] bg-gray-600 px-10 mb-5"}></div>
+
+                <div className={"flex justify-between px-5 mb-5"}>
+                    <p className={"text-2xl w-[45vw]"}>Центр технічного захисту інформації (надання консультацій зі
+                        створення
+                        КТ3І на ОІД, КС3І в ІТС для підрозділів звʼязку ЗС України)</p>
+                    <div>
+                        <p className={"text-xl proba-pro-light mb-1"}>
+                            (62) 39-990
+                        </p>
+                        <p className={"text-xl proba-pro-light mb-1"}>
+                            (62) 39-991
+                        </p>
+                        <p className={"text-xl proba-pro-light mb-1"}>
+                            41-249
+                        </p>
+                        <p className={"text-xl proba-pro-light mb-1"}>
+                            14-994
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>

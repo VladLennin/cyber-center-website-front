@@ -15,7 +15,8 @@ export enum RoutesName {
     FAQ = "/faq",
     LAW_BASE = "/law-base",
     SIGNAL = "/signal",
-    PROFILE_PAGE = "/profile"
+    PROFILE_PAGE = "/profile",
+    TEST_RESULT_PAGE = "/test-result"
 
 
 }
