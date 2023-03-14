@@ -52,7 +52,7 @@ const QuestionCard: FC<QuestionProps> = ({
                                 }
                                 }
                                         disabled={answered}
-                                        className={(answered && " bg-green-600 ") + "border rounded hover:shadow-xl shadow duration-200 py-3"}>
+                                        className={(answered && " bg-green-600 ") + " px-1 border rounded hover:shadow-xl shadow duration-200 py-3"}>
                                     {answer}
                                 </button>
                                 :
@@ -66,7 +66,7 @@ const QuestionCard: FC<QuestionProps> = ({
                                     })
                                 }}
                                         disabled={answered}
-                                        className={(chosenAnswer === index && " bg-red-600 ") + "border rounded hover:shadow-xl shadow duration-200 py-3"}>
+                                        className={(chosenAnswer === index && " bg-red-600 ") + " px-1 border rounded hover:shadow-xl shadow duration-200 py-3"}>
                                     {answer}
                                 </button>
                             }

@@ -37,7 +37,6 @@ const TestComponent: FC<TestProps> = ({test}) => {
         }
     }
 
-
     return (
         <div>
             {test.questions.map((question, index) => (

@@ -9,6 +9,7 @@ export enum RoutesName {
     ADDITIONAL_PZ = "/additional",
     DOCUMENTS_PAGE = "/documents",
     FISHING_PAGE = "/fishing",
+    FISHING_CARD_PAGE = "/fishing/card",
     CYBER_COURSE_PAGE = "/cyber-course",
     NEWS_PAGE = "/news",
     CONTACTS_PAGE = "/contacts",

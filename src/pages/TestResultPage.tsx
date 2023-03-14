@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {RoutesName} from "../router/RoutesName";
+import BackToMainBtn from "../components/BackToMainBtn";
 
 interface AnswersProps {
     incorrectAnswered: number,
@@ -37,32 +38,28 @@ const TestResultPage = () => {
     }
 
     return (
-        <div className={"flex justify-center items-center min-h-[77vh] flex-col proba-pro-medium mb-10 mt-5"}>
-            <p className={"proba-pro-bold text-[6vh]"}>Результат тесту</p>
-            <div className={"border rounded shadow p-10  max-w-[75vw]"}>
-                <div className={"flex items-center justify-between w-[25vw] text-xl"}>
-                    <p>Правильних відповідей</p>
-                    <p>{answers.correctAnswered} <i className="bi bi-check-circle-fill text-green-600"></i></p>
-                </div>
+        <>
+            <div className={"flex justify-start items-center min-h-[77vh] flex-col proba-pro-medium mb-10 mt-16"}>
+                <p className={"proba-pro-bold text-[6vh]"}>Результат тесту</p>
+                <div className={"border rounded shadow p-10  max-w-[75vw]"}>
+                    <div className={"flex items-center justify-between w-[25vw] text-xl"}>
+                        <p>Правильних відповідей</p>
+                        <p>{answers.correctAnswered} <i className="bi bi-check-circle-fill text-green-600"></i></p>
+                    </div>
 
-                <div className={"flex items-center justify-between w-[25vw] text-xl"}>
-                    <p>Неравильних відповідей</p>
-                    <p>{answers.incorrectAnswered} <i className="bi bi-x-circle-fill text-red-600"></i></p>
-                </div>
+                    <div className={"flex items-center justify-between w-[25vw] text-xl"}>
+                        <p>Неравильних відповідей</p>
+                        <p>{answers.incorrectAnswered} <i className="bi bi-x-circle-fill text-red-600"></i></p>
+                    </div>
 
-                <div className={"flex items-center justify-between w-[25vw] text-xl"}>
-                    <p>Відсоток вірності</p>
-                    <p>{calculatePercent()}% </p>
+                    <div className={"flex items-center justify-between w-[25vw] text-xl"}>
+                        <p>Відсоток вірності</p>
+                        <p>{calculatePercent()}% </p>
+                    </div>
                 </div>
-                <div className={"flex justify-end pt-4 text-xl"}>
-                    <Link to={RoutesName.MAIN_PAGE} className={"flex hover:text-[#AF8742] duration-200"}>
-                        <p>На головну</p>
-                        <i className="bi bi-arrow-up-right"></i>
-                    </Link>
-                </div>
-
             </div>
-        </div>
+        </>
+
     );
 };
 

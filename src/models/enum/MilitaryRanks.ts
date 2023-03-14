@@ -1,4 +1,4 @@
-export enum MilitaryRank {
+export enum MilitaryRanks {
     // Сержантський склад
     PRIVATE = "Солдат",
     PRIVATE_FIRST_CLASS = "Старший солдат",

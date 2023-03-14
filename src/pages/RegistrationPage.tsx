@@ -1,5 +1,5 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
-import {MilitaryRank} from "../models/enum/MilitaryRank";
+import {MilitaryRanks} from "../models/enum/MilitaryRanks";
 import {IUser} from "../models/IUser";
 import {ShipRanks} from "../models/enum/ShipRanks";
 import {Context} from "../index";
@@ -118,11 +118,11 @@ const RegistrationPage:FC = () => {
                         </select>
                         :
                         <select onChange={(e) => {
-                            setNewUser({...newUser, rank: Object.values(MilitaryRank)[Number(e.target.value)]})
+                            setNewUser({...newUser, rank: Object.values(MilitaryRanks)[Number(e.target.value)]})
                         }}
                                 className={"mb-4 px-2 py-1 rounded text-lg w-[100%]"} defaultValue={-1}>
                             <option disabled={true} value={-1}>Виберіть військове звання</option>
-                            {Object.values(MilitaryRank).map((rank, index) => (
+                            {Object.values(MilitaryRanks).map((rank, index) => (
                                 <option key={index} value={index}>{rank}</option>
                             ))}
 

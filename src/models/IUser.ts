@@ -1,5 +1,5 @@
-import {Roles} from "./Roles";
-import {MilitaryRank} from "./enum/MilitaryRank";
+import {Roles} from "./enum/Roles";
+import {MilitaryRanks} from "./enum/MilitaryRanks";
 import {ShipRanks} from "./enum/ShipRanks";
 import {IRole} from "./IRole";
 
@@ -8,7 +8,7 @@ export interface IUser {
     ipAddress: string;
     email: string;
     password: string;
-    rank: MilitaryRank | ShipRanks;
+    rank: MilitaryRanks | ShipRanks;
     surname: string;
     name: string;
     fatherhood: string;

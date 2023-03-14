@@ -16,6 +16,8 @@ import rectangle from "./../assets/Rectangle.svg"
 import laptopMainPage from "./../assets/laptopMainPage.svg"
 import {INews} from "../models/INews";
 import NewsCard from "../components/cards/NewsCard";
+import {Link} from "react-router-dom";
+import {RoutesName} from "../router/RoutesName";
 
 
 const MainPage: FC = () => {
@@ -149,11 +151,11 @@ const MainPage: FC = () => {
                             вдоскональте систему поповнивши базу
                         </p>
                     </div>
-                    <button
-                        className={"bg-black rounded-[150px]  text-white px-10  py-2 flex justify-between items-center proba-pro-medium"}>
-                        <div>Скористатися</div>
-                        <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
-                    </button>
+                        <Link className={"bg-black rounded-[150px] hover:scale-105 duration-200 text-white px-10  py-2 flex justify-between items-center proba-pro-medium"} to={RoutesName.FISHING_PAGE}>
+                            <div>Скористатися</div>
+                            <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
+                        </Link>
+
 
                 </div>
 
@@ -184,17 +186,17 @@ const MainPage: FC = () => {
                     </div>
 
                     <div className={"flex"}>
-                        <button
-                            className={"bg-black rounded-[150px]  text-white px-10  py-2 flex justify-between items-center proba-pro-medium mr-5"}>
+                        <Link to={"https://osvita.diia.gov.ua/courses/cyber-hygiene"}
+                            className={"bg-black rounded-[150px]  hover:scale-105 duration-200 text-white px-10  py-2 flex justify-between items-center proba-pro-medium mr-5"}>
                             <div>Прослухати лекцію</div>
                             <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
-                        </button>
+                        </Link>
 
-                        <button
-                            className={"rounded-[150px]  border-black border-2  px-10  py-2 flex justify-between items-center proba-pro-medium"}>
+                       <Link to={RoutesName.CYBER_COURSE_PAGE}
+                            className={"rounded-[150px] hover:scale-105 duration-200 border-black border-2  px-10  py-2 flex justify-between items-center proba-pro-medium"}>
                             <div>Тест</div>
                             <i className="bi bi-arrow-right ml-3 text-lg "></i>
-                        </button>
+                       </Link>
                     </div>
 
                 </div>
@@ -205,13 +207,13 @@ const MainPage: FC = () => {
                     <p>Новини</p>
                 </div>
                 <div className={"flex  flex-wrap"}>
-                    {news.slice(0, 4).map((n,index) => (<NewsCard key={index} news={n}/>))}
+                    {news.slice(0, 4).map((n, index) => (<NewsCard key={index} news={n}/>))}
                 </div>
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
-                    <button>
+                    <Link to={RoutesName.NEWS_PAGE} className={"hover:text-[#AF8742] duration-200"}>
                         Переглянути всі
                         <i className="bi bi-arrow-right"></i>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

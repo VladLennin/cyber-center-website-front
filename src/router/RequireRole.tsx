@@ -2,7 +2,7 @@ import React, {FC, useContext} from 'react';
 import {Navigate, Outlet, useLocation} from "react-router-dom";
 import {RoutesName} from "./RoutesName";
 import {Context} from "../index";
-import {Roles} from "../models/Roles";
+import {Roles} from "../models/enum/Roles";
 import {observer} from "mobx-react-lite";
 import {IUser} from "../models/IUser";
 
