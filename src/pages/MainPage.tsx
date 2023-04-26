@@ -129,7 +129,6 @@ const MainPage: FC = () => {
                     </div>
                 </div>
             </div>
-
             <div className={"bg-[#F9F9F9] grid grid-cols-2 px-[12vw]"}>
                 <div className={"proba-pro-light flex flex-col items-start justify-center "}>
                     <div className={"mb-5"}>
@@ -151,10 +150,12 @@ const MainPage: FC = () => {
                             вдоскональте систему поповнивши базу
                         </p>
                     </div>
-                        <Link className={"bg-black rounded-[150px] hover:scale-105 duration-200 text-white px-10  py-2 flex justify-between items-center proba-pro-medium"} to={RoutesName.FISHING_PAGE}>
-                            <div>Скористатися</div>
-                            <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
-                        </Link>
+                    <Link
+                        className={"bg-black rounded-[150px] hover:scale-105 duration-200 text-white px-10  py-2 flex justify-between items-center proba-pro-medium"}
+                        to={RoutesName.FISHING_PAGE}>
+                        <div>Скористатися</div>
+                        <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
+                    </Link>
 
 
                 </div>
@@ -187,16 +188,16 @@ const MainPage: FC = () => {
 
                     <div className={"flex"}>
                         <Link to={"https://osvita.diia.gov.ua/courses/cyber-hygiene"}
-                            className={"bg-black rounded-[150px]  hover:scale-105 duration-200 text-white px-10  py-2 flex justify-between items-center proba-pro-medium mr-5"}>
+                              className={"bg-black rounded-[150px]  hover:scale-105 duration-200 text-white px-10  py-2 flex justify-between items-center proba-pro-medium mr-5"}>
                             <div>Прослухати лекцію</div>
                             <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
                         </Link>
 
-                       <Link to={RoutesName.CYBER_COURSE_PAGE}
-                            className={"rounded-[150px] hover:scale-105 duration-200 border-black border-2  px-10  py-2 flex justify-between items-center proba-pro-medium"}>
+                        <Link to={RoutesName.CYBER_COURSE_PAGE}
+                              className={"rounded-[150px] hover:scale-105 duration-200 border-black border-2  px-10  py-2 flex justify-between items-center proba-pro-medium"}>
                             <div>Тест</div>
                             <i className="bi bi-arrow-right ml-3 text-lg "></i>
-                       </Link>
+                        </Link>
                     </div>
 
                 </div>
@@ -212,7 +213,7 @@ const MainPage: FC = () => {
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
                     <Link to={RoutesName.NEWS_PAGE} className={"hover:text-[#AF8742] duration-200"}>
                         Переглянути всі
-                        <i className="bi bi-arrow-right"></i>
+                        <i className=" ml-1 bi bi-arrow-right"></i>
                     </Link>
                 </div>
             </div>

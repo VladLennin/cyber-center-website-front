@@ -1,5 +1,5 @@
 import React from 'react';
-import BackToMainBtn from "../../components/BackToMainBtn";
+import BackBtn from "../../components/BackBtn";
 
 const AdditionalPZ = () => {
     return (

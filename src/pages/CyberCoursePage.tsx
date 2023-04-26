@@ -2,7 +2,7 @@ import React from 'react';
 import {TestModel} from "../models/TestModel";
 import {TestQuestion} from "../models/TestQuestion";
 import TestComponent from "../components/TestComponent";
-import BackToMainBtn from "../components/BackToMainBtn";
+import BackBtn from "../components/BackBtn";
 
 const CyberCoursePage = () => {
 

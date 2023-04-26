@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import BackToMainBtn from "../BackToMainBtn";
+import BackBtn from "../BackBtn";
 
 interface MainProps {
     children: React.ReactNode

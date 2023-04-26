@@ -7,7 +7,6 @@ import RegistrationPage from "../pages/RegistrationPage";
 import MainPage from "../pages/MainPage";
 import ContactsPage from "../pages/ContactsPage";
 import ProfilePage from "../pages/ProfilePage";
-import {observe} from "mobx";
 import DocumentsPage from "../pages/DocumentsPage";
 import FishingPage from "../pages/FishingPage";
 import CyberCoursePage from "../pages/CyberCoursePage";
@@ -20,15 +19,21 @@ import AntivirusesPZ from "../pages/PZpages/AntivirusesPZ";
 import UpdatePZ from "../pages/PZpages/UpdatePZ";
 import UnauthorizedPage from "../pages/UnauthorizedPage";
 import TestResultPage from "../pages/TestResultPage";
-import BackToMainBtn from "../components/BackToMainBtn";
+import BackBtn from "../components/BackBtn";
 import FishingCardPage from "../pages/FishingCardPage";
+import AddNewsPage from "../pages/AdminPages/AddNewsPage";
+import AddAntPz from "../pages/AdminPages/AddAntPz";
+import UsersPage from "../pages/AdminPages/UsersPage";
+import AddUpdatePage from "../pages/AdminPages/AddUpdatePage";
+import AddAdditionalPzPage from "../pages/AdminPages/AddAdditionalPzPage";
+import AddFishingExamplePage from "../pages/AdminPages/AddFishingExamplePage";
 
 const AppRouter = () => {
 
     const {store} = useContext(Context)
     return (
         <>
-            <BackToMainBtn/>
+            <BackBtn/>
             <Routes>
                 <Route path={RoutesName.REGISTRATION_PAGE} element={<RegistrationPage/>}/>
                 <Route path={RoutesName.DOCUMENTS_PAGE} element={<DocumentsPage/>}/>
@@ -44,6 +49,12 @@ const AppRouter = () => {
 
                 <Route element={<RequireRole allowedRole={Roles.ADMIN.toString()}/>}>
                     <Route path={RoutesName.ADMIN_PAGE} element={<AdminPage/>}/>
+                    <Route path={RoutesName.ADMIN_NEWS_PAGE} element={<AddNewsPage/>}/>
+                    <Route path={RoutesName.ADMIN_ANT_PZ_PAGE} element={<AddAntPz/>}/>
+                    <Route path={RoutesName.ADMIN_USERS_PAGE} element={<UsersPage/>}/>
+                    <Route path={RoutesName.ADMIN_UPDATES_PAGE} element={<AddUpdatePage/>}/>
+                    <Route path={RoutesName.ADMIN_ADDITIONAL_PZ_PAGE} element={<AddAdditionalPzPage/>}/>
+                    <Route path={RoutesName.ADMIN_FISHING_PAGE} element={<AddFishingExamplePage/>}/>
                 </Route>
 
                 <Route element={<RequireAuth/>}>

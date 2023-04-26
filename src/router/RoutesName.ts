@@ -3,7 +3,6 @@ export enum RoutesName {
     UNAUTHORIZED = "/unauthorized",
     REGISTRATION_PAGE = "/registration",
     MAIN_PAGE = "/",
-    ADMIN_PAGE = "/admin",
     ANTIVIRUSES_PAGE = "/ant",
     UPDATES_PAGE = "/update",
     ADDITIONAL_PZ = "/additional",
@@ -17,7 +16,13 @@ export enum RoutesName {
     LAW_BASE = "/law-base",
     SIGNAL = "/signal",
     PROFILE_PAGE = "/profile",
-    TEST_RESULT_PAGE = "/test-result"
-
+    TEST_RESULT_PAGE = "/test-result",
+    ADMIN_PAGE = "/admin",
+    ADMIN_NEWS_PAGE="/admin/news",
+    ADMIN_ANT_PZ_PAGE="/admin/ant-pz",
+    ADMIN_USERS_PAGE="/admin/users",
+    ADMIN_UPDATES_PAGE="/admin/updates",
+    ADMIN_ADDITIONAL_PZ_PAGE="/admin/additional",
+    ADMIN_FISHING_PAGE="/admin/fishing",
 
 }

@@ -5,7 +5,7 @@ import {ShipRanks} from "../models/enum/ShipRanks";
 import {MilitaryRanks} from "../models/enum/MilitaryRanks";
 import {observer} from "mobx-react-lite";
 import {observe} from "mobx";
-import BackToMainBtn from "../components/BackToMainBtn";
+import BackBtn from "../components/BackBtn";
 
 const ProfilePage = () => {
 

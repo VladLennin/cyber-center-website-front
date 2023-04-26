@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {RoutesName} from "../router/RoutesName";
-import BackToMainBtn from "../components/BackToMainBtn";
+import BackBtn from "../components/BackBtn";
 
 interface AnswersProps {
     incorrectAnswered: number,
