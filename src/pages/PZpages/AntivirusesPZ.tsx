@@ -8,6 +8,7 @@ const AntivirusesPZ = () => {
                 <p className={"proba-pro-bold text-[6vh]"}>Комплексне антивірусне забезепечення</p>
                 <div className={"border rounded shadow p-10 "}>
                 </div>
+                <a  href={"http://localhost:3005/ftp/ftp/tasks.rar"} download={"http://localhost:3005/ftp/ftp/tasks.rar"}>some text</a>
             </div>
         </>
     );

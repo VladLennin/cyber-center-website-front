@@ -1,8 +1,11 @@
+import {Networks} from "./enum/Networks";
+import {OS} from "./enum/OS";
+
 export interface IPz {
     id: number;
-    typeFor: string;
-    network: string;
+    os: OS;
+    network: Networks;
     src: string;
     unitId: number;
-
+    name: string;
 }

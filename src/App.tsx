@@ -3,7 +3,6 @@ import Wrapper from "./components/main/Wrapper";
 import AppRouter from "./router/AppRouter";
 import {Context} from "./index";
 import {useLocation, useNavigate} from "react-router-dom";
-import RegistrationPage from "./pages/RegistrationPage";
 
 function App() {
     const {store} = useContext(Context)

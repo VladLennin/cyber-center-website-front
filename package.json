@@ -15,6 +15,7 @@
     "bootstrap-icons": "^1.10.3",
     "flowbite": "^1.6.3",
     "flowbite-react": "^0.4.2",
+    "fs": "^0.0.1-security",
     "js-cookie": "^3.0.1",
     "local-ip-address": "^1.0.0",
     "mobx": "^6.8.0",

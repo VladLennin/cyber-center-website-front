@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import {INews} from "../../models/INews";
 import {Link} from "react-router-dom";
+import {RoutesName} from "../../router/RoutesName";
 
 
 interface NewsProps {
@@ -9,23 +10,37 @@ interface NewsProps {
 
 const NewsCard: FC<NewsProps> = ({news}) => {
     return (
-        <Link to={news.link}>
-            <div className={"text-sm] w-[16vw] mr-10"}>
-                <img className={"rounded-[16px]"} src={"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"} alt="qwe"/>
+        <>
 
-                <div className={"proba-pro-medium text-xl"}>
-                    {news.title}
+            <div
+                className={"text-sm max-w-[24vw]   p-2 rounded-xl  m-2"}>
+                <div className={"flex justify-center"}>
+                    <img className={"rounded-[16px] mb-2  text-center"}
+                         src={"http://10.5.113.112:3005/ftp/download/" + news.imgHref}
+                         alt="qwe"/>
                 </div>
 
-                <div className={"proba-pro-light h-[100px] text-ellipsis overflow-hidden ... "}>
+
+                <div className={"proba-pro-medium text-xl"}>
+                    {news.name}
+                </div>
+
+                <div className={"max-h-[120px] proba-pro-light mb-2 text-ellipsis overflow-hidden ... "}>
                     {news.content}
                 </div>
 
                 <div className={"proba-pro-light text-[#909090]"}>
-                    {news.date}
+                    {news.date.split("T")[0]}
                 </div>
+                <div className={"flex justify-end"}>
+                    <Link className={"hover:text-[#AF8742] duration-100"} to={RoutesName.NEWS_PAGE + "/" + news.id}>
+                        Детальніше
+                    </Link>
+                </div>
+
             </div>
-        </Link>
+        </>
+
 
     );
 };

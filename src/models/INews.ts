@@ -1,7 +1,8 @@
 export interface INews {
-    img: string;
-    title: string;
+    id: number;
+    imgHref: string;
+    img: File ;
+    name: string;
     content: string;
-    date: string;
-    link: string;
+    date: any;
 }

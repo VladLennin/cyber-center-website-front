@@ -14,7 +14,7 @@ export default class Store {
     isAuth = false;
     isLoading = false;
     modalLogin = false;
-
+    // toggles:
 
     constructor() {
         makeAutoObservable(this)

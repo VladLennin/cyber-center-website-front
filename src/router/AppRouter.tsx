@@ -19,14 +19,14 @@ import AntivirusesPZ from "../pages/PZpages/AntivirusesPZ";
 import UpdatePZ from "../pages/PZpages/UpdatePZ";
 import UnauthorizedPage from "../pages/UnauthorizedPage";
 import TestResultPage from "../pages/TestResultPage";
-import BackBtn from "../components/BackBtn";
-import FishingCardPage from "../pages/FishingCardPage";
-import AddNewsPage from "../pages/AdminPages/AddNewsPage";
 import AddAntPz from "../pages/AdminPages/AddAntPz";
 import UsersPage from "../pages/AdminPages/UsersPage";
 import AddUpdatePage from "../pages/AdminPages/AddUpdatePage";
 import AddAdditionalPzPage from "../pages/AdminPages/AddAdditionalPzPage";
 import AddFishingExamplePage from "../pages/AdminPages/AddFishingExamplePage";
+import BackBtn from "../components/BackBtn";
+import FishingCardPage from "../pages/FishingCardPage";
+import AddNewsPage from "../pages/AdminPages/AddNewsPage";
 
 const AppRouter = () => {
 

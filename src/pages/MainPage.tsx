@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 
 // @ts-ignore
 import esetShieldlogo from "./../assets/Lock shield.svg"
@@ -22,55 +22,7 @@ import {RoutesName} from "../router/RoutesName";
 
 const MainPage: FC = () => {
 
-    const news: INews[] = [{
-        img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-        link: "/news/1",
-        title: "Some news",
-        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-        date: "01/01/01"
-    },
-        {
-            img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-            link: "/news/1",
-            title: "Some news",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-            date: "02/01/01"
-        },
-        {
-            img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-            link: "/news/1",
-            title: "Some news",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-            date: "03/01/01"
-        },
-        {
-            img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-            link: "/news/1",
-            title: "Some news",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-            date: "04/01/01"
-        },
-        {
-            img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-            link: "/news/1",
-            title: "Some news",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-            date: "05/01/01"
-        },
-        {
-            img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-            link: "/news/1",
-            title: "Some news",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-            date: "06/01/01"
-        },
-        {
-            img: "/Users/vladlenmarchenko/WebstormProjects/cyber-center-website-front/src/assets/laptopMainPage.svg",
-            link: "/news/1",
-            title: "Some news",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque facilis mollitia nisi, possimus? Commodi esse neque repellat sit? Assumenda deleniti ea impedit magni necessitatibus nulla perferendis repellat voluptate?",
-            date: "07/01/01"
-        }]
+    const [news, setNews] = useState<INews[]>([])
 
     return (
         <div className={"flex flex-col justify-center items-center w-[100%] mt-5"}>

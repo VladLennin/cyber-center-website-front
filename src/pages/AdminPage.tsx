@@ -16,7 +16,7 @@ const AdminPage = () => {
                 </div>
                 <div className={"bg-[#F9F9F9] grid grid-cols-1 px-[12vw]"}>
 
-                    <div className={"bg-[#F9F9F9] rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
+                    <div className={" rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
                         <Link to={RoutesName.ADMIN_NEWS_PAGE}>
                             <div
                                 className={"hover:cursor-pointer rounded-xl bg-[#F9F9F9] hover:bg-white hover:scale-105 duration-200 hover:shadow p-5"}>
@@ -45,8 +45,9 @@ const AdminPage = () => {
 
                     </div>
                 </div>
-                <div className={"bg-[#FFFF] grid grid-cols-1 px-[12vw]"}>
-                    <div className={"bg-[#FFFFF] rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
+                <div className={"bg-[#FFFF] w-full grid grid-cols-1 px-[12vw]"}>
+
+                    <div className={" rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
                         <Link to={RoutesName.ADMIN_USERS_PAGE}>
                             <div
                                 className={"hover:cursor-pointer rounded-xl bg-[#FFFF] hover:bg-[#F9F9F9] hover:scale-105 duration-200 hover:shadow p-5"}>
@@ -76,8 +77,9 @@ const AdminPage = () => {
                     </div>
                 </div>
 
-                <div className={"bg-[#F9F9F9] grid grid-cols-1 px-[12vw]"}>
-                    <div className={"bg-[#F9F9F9] rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
+                <div className={" bg-[#F9F9F9] w-full grid grid-cols-1 px-[12vw] "}>
+
+                    <div className={" rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
                         <Link to={RoutesName.ADMIN_ADDITIONAL_PZ_PAGE}>
                             <div
                                 className={" hover:cursor-pointer rounded-xl bg-[#F9F9F9] hover:bg-white hover:scale-105 duration-200 hover:shadow p-5"}>

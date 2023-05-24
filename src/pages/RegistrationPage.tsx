@@ -3,6 +3,7 @@ import {MilitaryRanks} from "../models/enum/MilitaryRanks";
 import {IUser} from "../models/IUser";
 import {ShipRanks} from "../models/enum/ShipRanks";
 import {Context} from "../index";
+import ErrorsBlock from "../components/ErrorsBlock";
 
 const RegistrationPage:FC = () => {
 
@@ -30,7 +31,7 @@ const RegistrationPage:FC = () => {
                     console.log(res)
                 }).catch(err => {
                     console.log(err)
-                    setErrors([...errors, err.response.data.message])
+                    // setErrors([...errors, err.response.data.message])
                 })
             } else {
                 setErrors([...errors, "Паролі не співпадають"])
@@ -55,14 +56,7 @@ const RegistrationPage:FC = () => {
             <div className={"border p-10 rounded proba-pro-medium shadow-2xl"}>
                 {errors.length > 0 &&
                     <div className={"mb-5 text-red-800 flex justify-center"}>
-                        {errors.map((err,index)=> (
-                                <div key={index} className={"flex items-center border px-3 py-1 border-red-800 rounded"}>
-                                    <p>{err}</p>
-                                    <i className="bi bi-exclamation-triangle-fill ml-2"></i>
-                                </div>
-
-                            )
-                        )}
+                        <ErrorsBlock errors={errors}/>
                     </div>
                 }
 
