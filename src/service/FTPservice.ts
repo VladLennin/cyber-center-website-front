@@ -21,7 +21,7 @@ export default class FtpService {
         )
         const formData = new FormData();
         formData.append('file', file);
-        axios.post(FTP_URL + "/upload", formData)
+        await axios.post(FTP_URL + "/upload", formData)
             .then(() => {
                 console.log('File uploaded successfully');
             })

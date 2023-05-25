@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
 import {INews} from "../../models/INews";
 import NewsService from "../../service/NewsService"
-import ErrorsBlock from "../../components/ErrorsBlock";
 import {Context} from "../../index";
 import {IToast} from "../../models/IToast";
 import {ToastTypes} from "../../models/enum/ToastTypes";
@@ -13,10 +12,14 @@ import {observer} from "mobx-react-lite";
 const AddNewsPage = () => {
 
     const [news, setNews] = useState<INews[]>([]);
-
     const [newNews, setNewNews] = useState<INews>({
-        date: new Date()
+        date: new Date(),
+        name: "",
+        content: "",
+        img: new File([], "empty", {})
     } as INews)
+
+    const validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
 
     const {store} = useContext(Context)
 
@@ -26,19 +29,50 @@ const AddNewsPage = () => {
         })
     }, [])
 
+
     const handleFileChange = (event: any) => {
-        setNewNews({...newNews, img: event.target.files[0]});
+        const file = event.target.files[0];
+        if (file) {
+            const fileName = file.name;
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+
+            if (validExtensions.includes(fileExtension)) {
+                setNewNews({...newNews, img: event.target.files[0]});
+            } else {
+                store.addToggle({content: "Некоректне розширення файлу", type: ToastTypes.Warning} as IToast)
+            }
+        }
     };
 
+    function useForceUpdate() {
+        const [value, setValue] = useState(0);
+        return () => setValue(value => value + 1);
+    }
+
+    const forceUpdate = useForceUpdate()
+
+
     const addNews = () => {
-        if (newNews.content !== undefined && newNews.name !== undefined) {
+        if (newNews.content !== "" && newNews.name !== "" && newNews.img.name !== "empty") {
             NewsService.createNews(newNews).then(res => {
-                store.addToggle({content:"Новина додана",type:ToastTypes.Successful} as IToast)
+                store.addToggle({content: "Новина додана", type: ToastTypes.Successful} as IToast)
+                news.push(res.data as INews)
+                news.sort((item1, item2) => item2.date - item1.date)
+                setNews(news)
+
+                setNewNews({
+                    date: new Date(),
+                    name: "",
+                    content: "",
+                    img: new File([], "empty", {})
+                } as INews)
+
+                forceUpdate()
             }).catch(err => {
-                store.addToggle({content:"Відбулася помилка",type:ToastTypes.Error} as IToast)
+                store.addToggle({content: "Відбулася помилка", type: ToastTypes.Error} as IToast)
             })
         } else {
-            store.addToggle({content:"Поля некоректні",type:ToastTypes.Warning} as IToast)
+            store.addToggle({content: "Поля некоректні", type: ToastTypes.Warning} as IToast)
         }
     }
 
@@ -53,19 +87,24 @@ const AddNewsPage = () => {
                     </p>
                     <div className={"grid grid-cols-2 proba-pro-medium border rounded p-4 mb-3 shadow-xl"}>
                         <p>Назва</p>
-                        <input onChange={(e) => {
+                        <input value={newNews.name} onChange={(e) => {
                             setNewNews({...newNews, name: e.target.value})
                         }
                         } className={"rounded p-2 mb-3"} type="text"/>
 
                         <p>Зміст</p>
-                        <textarea onChange={(e) => {
+                        <textarea value={newNews.content} onChange={(e) => {
                             setNewNews({...newNews, content: e.target.value})
                         }
                         } className={"mb-3"}/>
 
                         <p>Фото</p>
-                        <input onChange={e => handleFileChange(e)} className={"mb-4"} type="file"/>
+                        <input required onChange={e => handleFileChange(e)} className={"mb-4"} type="file"/>
+
+                        <div className={"col-span-2  flex justify-center mb-5 "}>
+                            <img className={(newNews.img.name !== "empty" ? "  border-2  " : "  ") + "w-1/6"}
+                                 src={URL.createObjectURL(newNews.img)} alt=""/>
+                        </div>
 
                         <div className={"flex justify-center col-span-2 mb-1"}>
                             <button onClick={() => addNews()}
@@ -82,7 +121,7 @@ const AddNewsPage = () => {
                     <p>Новини</p>
                 </div>
                 <div className={"grid grid-cols-4"}>
-                    {news.slice(0, 4).map((n, index) => (<NewsCard key={index} news={n}/>))}
+                    {news.map((n, index) => (<NewsCard key={index} news={n}/>))}
                 </div>
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
                     <Link to={RoutesName.NEWS_PAGE} className={"hover:text-[#AF8742] duration-200"}>
@@ -91,7 +130,6 @@ const AddNewsPage = () => {
                     </Link>
                 </div>
             </div>
-
         </div>
 
     );
