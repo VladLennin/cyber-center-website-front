@@ -1,10 +1,10 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useContext} from 'react';
 import Main from "./Main";
 import Footer from "./Footer";
 import Header from "./Header";
-import {observe} from "mobx";
 import {observer} from "mobx-react-lite";
-import {Toast} from "flowbite-react";
+import {Context} from "../../index";
+import ToastCustom from "../ToastCustom";
 
 interface WrapperProps {
     children: React.ReactNode
@@ -12,15 +12,14 @@ interface WrapperProps {
 
 const Wrapper: FC<WrapperProps> = ({children}) => {
 
+    const {store} = useContext(Context)
+
     return (
         <>
-            <div className={"absolute right-[50px] top-[50px]"}>
-                <Toast>
-                  <div>
-                      some text
-                  </div>
-                    <Toast.Toggle/>
-                </Toast>
+            <div className={"fixed right-[50px] top-[50px] z-50"}>
+                {store.toggles.map((toggle, index) => (
+                    <ToastCustom key={index} toast={toggle}/>
+                ))}
             </div>
             <Header/>
             <Main>

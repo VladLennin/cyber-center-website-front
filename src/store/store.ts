@@ -5,6 +5,8 @@ import axios from "axios";
 import {AuthResponse} from "../models/responce/Authresponce";
 import {API_URL} from "../http";
 import UserService from "../service/UserService";
+import {IToast} from "../models/IToast";
+import {Roles} from "../models/enum/Roles";
 
 
 export default class Store {
@@ -14,7 +16,7 @@ export default class Store {
     isAuth = false;
     isLoading = false;
     modalLogin = false;
-    // toggles:
+    toggles: IToast[] = [];
 
     constructor() {
         makeAutoObservable(this)
@@ -34,6 +36,19 @@ export default class Store {
 
     setLoading(bool: boolean) {
         this.isLoading = bool;
+    }
+
+    addToggle(toggle: IToast) {
+        this.toggles.push(toggle)
+
+        setTimeout(() => {
+            this.toggles.shift()
+            console.log(this.toggles)
+        }, 30_000)
+    }
+
+    setToggle(toggles: IToast[]) {
+        this.toggles = toggles
     }
 
     setModalLogin(bool: boolean) {
@@ -74,13 +89,7 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
             this.setUser(response.data.user)
-
-            let roles: string[] = []
-            response.data.user.roles.map(role => {
-                roles.push(role.value)
-            })
-            this.setUserRole(roles)
-
+            this.userRoles = [Roles.USER]
             return response
         } catch (e) {
             throw e

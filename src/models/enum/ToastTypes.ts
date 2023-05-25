@@ -1,4 +1,4 @@
-export enum ToggleTypes{
+export enum ToastTypes{
     "Warning",
     "Error",
     "Successful",

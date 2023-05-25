@@ -1,10 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import NewsCard from "../../components/cards/NewsCard";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
 import {INews} from "../../models/INews";
 import NewsService from "../../service/NewsService"
 import ErrorsBlock from "../../components/ErrorsBlock";
+import {Context} from "../../index";
+import {IToast} from "../../models/IToast";
+import {ToastTypes} from "../../models/enum/ToastTypes";
+import {observer} from "mobx-react-lite";
 
 const AddNewsPage = () => {
 
@@ -13,7 +17,8 @@ const AddNewsPage = () => {
     const [newNews, setNewNews] = useState<INews>({
         date: new Date()
     } as INews)
-    const [errors, setErrors] = useState<string[]>([])
+
+    const {store} = useContext(Context)
 
     useEffect(() => {
         NewsService.getNews(5).then(res => {
@@ -28,12 +33,12 @@ const AddNewsPage = () => {
     const addNews = () => {
         if (newNews.content !== undefined && newNews.name !== undefined) {
             NewsService.createNews(newNews).then(res => {
-                console.log(res)
+                store.addToggle({content:"Новина додана",type:ToastTypes.Successful} as IToast)
             }).catch(err => {
-                console.log(err)
+                store.addToggle({content:"Відбулася помилка",type:ToastTypes.Error} as IToast)
             })
         } else {
-            setErrors([...errors, "Якесь поле введено некоректно"])
+            store.addToggle({content:"Поля некоректні",type:ToastTypes.Warning} as IToast)
         }
     }
 
@@ -47,20 +52,15 @@ const AddNewsPage = () => {
                         Додати нову новину
                     </p>
                     <div className={"grid grid-cols-2 proba-pro-medium border rounded p-4 mb-3 shadow-xl"}>
-                        <div className={"col-span-2"}>
-                            <ErrorsBlock errors={errors}/>
-                        </div>
                         <p>Назва</p>
                         <input onChange={(e) => {
                             setNewNews({...newNews, name: e.target.value})
-                            setErrors([])
                         }
                         } className={"rounded p-2 mb-3"} type="text"/>
 
                         <p>Зміст</p>
                         <textarea onChange={(e) => {
                             setNewNews({...newNews, content: e.target.value})
-                            setErrors([])
                         }
                         } className={"mb-3"}/>
 
@@ -97,4 +97,4 @@ const AddNewsPage = () => {
     );
 };
 
-export default AddNewsPage;
+export default observer(AddNewsPage);

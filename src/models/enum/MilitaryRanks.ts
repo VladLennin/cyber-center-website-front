@@ -1,5 +1,6 @@
 export enum MilitaryRanks {
     // Сержантський склад
+    JUNIOR_SOLDIER = "Молодший Солдат",
     PRIVATE = "Солдат",
     PRIVATE_FIRST_CLASS = "Старший солдат",
     JUNIOR_SERGEANT = "Молодший сержант",

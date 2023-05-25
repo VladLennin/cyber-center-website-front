@@ -8,8 +8,6 @@ import NewsCard from "../components/cards/NewsCard";
 
 const NewsPage = () => {
 
-    //test
-
     const {store} = useContext(Context)
     const [news, setNews] = useState<INews[]>([])
 

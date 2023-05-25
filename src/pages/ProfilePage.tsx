@@ -4,8 +4,8 @@ import {IUser} from "../models/IUser";
 import {ShipRanks} from "../models/enum/ShipRanks";
 import {MilitaryRanks} from "../models/enum/MilitaryRanks";
 import {observer} from "mobx-react-lite";
-import {observe} from "mobx";
-import BackBtn from "../components/BackBtn";
+import {IToast} from "../models/IToast";
+import {ToastTypes} from "../models/enum/ToastTypes";
 
 const ProfilePage = () => {
 
@@ -13,7 +13,6 @@ const ProfilePage = () => {
     const {store} = useContext(Context)
     const [newUser, setNewUser] = useState<IUser>(store.user)
     const [isShipsRank, setIsShipsRank] = useState<boolean>(false)
-    const [errors, setErrors] = useState<string[]>([])
     const [flags, setFlags] = useState({
         email: false,
         rank: false,
@@ -30,23 +29,6 @@ const ProfilePage = () => {
             <div className={"flex justify-start items-center min-h-[77vh] flex-col proba-pro-medium"}>
                 <p className={"proba-pro-bold text-[6vh]"}>Профіль</p>
                 <div className={"border rounded shadow p-10 "}>
-                    {errors.length > 0 &&
-                        <div className={"mb-5 text-red-800 flex flex-col justify-center"}>
-                            {errors.map((err, index) => (
-                                    <div key={index}
-                                         className={"flex items-center border px-3 py-1 border-red-800 rounded mb-2"}>
-                                        <button onClick={() => {
-                                            setErrors([])
-                                        }} className={"flex"}>
-                                            <p>{err}</p>
-                                            <i className="bi bi-exclamation-triangle-fill ml-2"></i>
-                                        </button>
-                                    </div>
-
-                                )
-                            )}
-                        </div>
-                    }
                     <div className={"grid mb-4 grid-cols-2  "}>
                         <p className={"text-lg"}>Email</p>
 
@@ -61,9 +43,11 @@ const ProfilePage = () => {
                                 <button onClick={() => {
                                     if (newUser.email !== store.user.email) {
                                         store.editUser("email", newUser.email).then(res => {
+                                            store.addToggle( {content:`Пошта змінена на ${newUser.email}` , type:ToastTypes.Successful} as IToast)
+                                            store.setUser(newUser)
                                         }).catch(e => {
                                             if (e) {
-                                                setErrors([...errors, e.response.data.message])
+                                                store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                                 setNewUser(store.user)
                                             }
                                         })
@@ -128,9 +112,10 @@ const ProfilePage = () => {
                                             </select>
                                             <button className={"flex items-center mb-3"} onClick={() => {
                                                 store.editUser("rank", newUser.rank).then(res => {
-                                                    console.log(res)
+                                                    store.addToggle( {content:`Звання змінено на ${newUser.rank}` , type:ToastTypes.Successful} as IToast)
+                                                    store.setUser(newUser)
                                                 }).catch(e => {
-                                                    console.log(e)
+                                                    store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                                 })
                                                 setFlags({...flags, rank: false})
                                             }}>
@@ -155,9 +140,10 @@ const ProfilePage = () => {
                                             </select>
                                             <button className={"flex items-center mb-3"} onClick={() => {
                                                 store.editUser("rank", newUser.rank).then(res => {
-                                                    console.log(res)
+                                                    store.addToggle( {content:`Звання змінено на ${newUser.rank}` , type:ToastTypes.Successful} as IToast)
+                                                    store.setUser(newUser)
                                                 }).catch(e => {
-                                                    console.log(e)
+                                                    store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                                 })
                                                 setFlags({...flags, rank: false})
                                             }}>
@@ -201,9 +187,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("surname", newUser.surname).then(res => {
-                                        console.log(res)
+                                        store.addToggle( {content:`Прізвище змінено на ${newUser.surname}` , type:ToastTypes.Successful} as IToast)
+                                        store.setUser(newUser)
                                     }).catch(e => {
-                                        console.log(e)
+                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, surname: false})
                                 }}>
@@ -236,9 +223,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("name", newUser.name).then(res => {
-                                        console.log(res)
+                                        store.addToggle( {content:`Імʼя змінено на ${newUser.name}` , type:ToastTypes.Successful} as IToast)
+                                        store.setUser(newUser)
                                     }).catch(e => {
-                                        console.log(e)
+                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, name: false})
                                 }}>
@@ -272,9 +260,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("fatherhood", newUser.fatherhood).then(res => {
-                                        console.log(res)
+                                        store.addToggle( {content:`По-батькові змінено на ${newUser.fatherhood}` , type:ToastTypes.Successful} as IToast)
+                                        store.setUser(newUser)
                                     }).catch(e => {
-                                        console.log(e)
+                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, fatherhood: false})
                                 }}>
@@ -310,9 +299,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("contactNumber", newUser.contactNumber).then(res => {
-                                        console.log(res)
+                                        store.addToggle( {content:`Контактний номер змінено на ${newUser.contactNumber}` , type:ToastTypes.Successful} as IToast)
+                                        store.setUser(newUser)
                                     }).catch(e => {
-                                        console.log(e)
+                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, contactNumber: false})
                                 }}>
@@ -345,9 +335,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("unit", newUser.unit).then(res => {
-                                        console.log(res)
+                                        store.addToggle( {content:`Підрозділ змінено на ${newUser.unit}` , type:ToastTypes.Successful} as IToast)
+                                        store.setUser(newUser)
                                     }).catch(e => {
-                                        console.log(e)
+                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, unit: false})
                                 }}>

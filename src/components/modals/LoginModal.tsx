@@ -4,6 +4,8 @@ import {Context} from "../../index";
 import {useNavigate} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
 import {observer} from "mobx-react-lite";
+import {IToast} from "../../models/IToast";
+import {ToastTypes} from "../../models/enum/ToastTypes";
 
 interface LoginProps {
     modal: boolean;
@@ -24,10 +26,11 @@ const LoginModal: FC<LoginProps> = ({modal}) => {
             store.login(email, password).then(res => {
                 if (res.status === 201) {
                     store.closeModalLogin()
+                    store.addToggle({type: ToastTypes.Successful, content: "Авторизація успішна"} as IToast)
                     navigate(RoutesName.MAIN_PAGE)
                 }
             }).catch(e => {
-                console.log(e)
+                store.addToggle({type: ToastTypes.Error, content: e.response.data.message} as IToast)
             })
         }
     }

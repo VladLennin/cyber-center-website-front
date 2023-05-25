@@ -3,16 +3,23 @@ import {MilitaryRanks} from "../models/enum/MilitaryRanks";
 import {IUser} from "../models/IUser";
 import {ShipRanks} from "../models/enum/ShipRanks";
 import {Context} from "../index";
-import ErrorsBlock from "../components/ErrorsBlock";
+import {IToast} from "../models/IToast";
+import {ToastTypes} from "../models/enum/ToastTypes";
+import {Roles} from "../models/enum/Roles";
+import {IRole} from "../models/IRole";
+import {useNavigate} from "react-router-dom";
+import {RoutesName} from "../router/RoutesName";
 
-const RegistrationPage:FC = () => {
+const RegistrationPage: FC = () => {
 
 
-    const [newUser, setNewUser] = useState<IUser>({} as IUser)
+    const [newUser, setNewUser] = useState<IUser>({ipAddress:"127.0.0.1",roles:[{value:Roles.USER} as IRole]} as IUser)
     const [controlPassword, setControlPassword] = useState<string>("")
     const [isShipsRank, setIsShipsRank] = useState<boolean>(false)
-    const [errors, setErrors] = useState<string[]>([])
     const {store} = useContext(Context)
+    const navigate = useNavigate()
+
+
 
     const registration = () => {
         if (newUser.email &&
@@ -26,41 +33,26 @@ const RegistrationPage:FC = () => {
             newUser.password
         ) {
             if (controlPassword === newUser.password) {
-                console.log(newUser)
-                store.registration(newUser).then((res: any) => {
-                    console.log(res)
+                store.registration(newUser).then((res) => {
+                    store.addToggle({content: "Рєестрація успішна", type: ToastTypes.Successful} as IToast)
+                    navigate(RoutesName.MAIN_PAGE)
                 }).catch(err => {
-                    console.log(err)
-                    // setErrors([...errors, err.response.data.message])
+                    store.addToggle({content: err.response.data.message, type: ToastTypes.Error} as IToast)
                 })
             } else {
-                setErrors([...errors, "Паролі не співпадають"])
+                store.addToggle({content: "Паролі не співпадають", type: ToastTypes.Warning} as IToast)
             }
         } else {
-            setErrors([...errors, "Якесь поле залишилось пустим"])
+            store.addToggle({content: "Якесь поле залишилось пустим", type: ToastTypes.Warning} as IToast)
         }
     }
 
-    useEffect(() => {
-        setNewUser({...newUser, ipAddress: "127.0.0.1"})
-
-    }, [])
-    useEffect(() => {
-        setErrors([])
-    }, [newUser])
     return (
         <div className={"flex justify-center items-center flex-col mt-4 mb-10"}>
             <div className={"proba-pro-bold text-[6vh]"}>
                 Реєстрація
             </div>
             <div className={"border p-10 rounded proba-pro-medium shadow-2xl"}>
-                {errors.length > 0 &&
-                    <div className={"mb-5 text-red-800 flex justify-center"}>
-                        <ErrorsBlock errors={errors}/>
-                    </div>
-                }
-
-
                 <div className={"flex mb-4 justify-between"}>
                     <p className={"text-lg"}>Email</p>
                     <input onChange={(e) => {

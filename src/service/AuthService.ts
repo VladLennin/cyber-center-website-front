@@ -5,11 +5,11 @@ import {IUser} from "../models/IUser";
 
 export default class AuthService {
     static async registration(user: IUser): Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>('/auth/registration', {user})
+        return await $api.post<AuthResponse>('/auth/registration', {user})
     }
 
     static async logout(): Promise<any> {
-        return $api.post('/auth/logout')
+        return await $api.post('/auth/logout')
     }
 
     static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {

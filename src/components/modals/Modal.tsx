@@ -14,7 +14,7 @@ const Modal: FC<ModalProps> = ({show, close, children, title}) => {
             {
                 show ?
                     <div
-                        className="modalContainer"
+                        className="modalContainer z-10"
                         onClick={() => close()}
                     >
                         <div className="modal" onClick={(e) => e.stopPropagation()}>

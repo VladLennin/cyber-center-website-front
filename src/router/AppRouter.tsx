@@ -35,7 +35,12 @@ const AppRouter = () => {
         <>
             <BackBtn/>
             <Routes>
-                <Route path={RoutesName.REGISTRATION_PAGE} element={<RegistrationPage/>}/>
+                {!store.isAuth ?
+                    <Route path={RoutesName.REGISTRATION_PAGE} element={<RegistrationPage/>}/>
+                    :
+                    <Route path={RoutesName.REGISTRATION_PAGE} element={<MainPage/>}/>
+                }
+
                 <Route path={RoutesName.DOCUMENTS_PAGE} element={<DocumentsPage/>}/>
                 <Route path={RoutesName.FISHING_PAGE} element={<FishingPage/>}/>
                 <Route path={RoutesName.CYBER_COURSE_PAGE} element={<CyberCoursePage/>}/>
