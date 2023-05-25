@@ -1,7 +1,6 @@
 import $api from "../http";
 import {INews} from "../models/INews";
 import FtpService from "./FTPservice";
-import {log} from "util";
 import {AxiosResponse} from "axios";
 
 export default class NewsService {

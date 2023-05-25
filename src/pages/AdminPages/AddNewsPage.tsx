@@ -57,7 +57,7 @@ const AddNewsPage = () => {
             NewsService.createNews(newNews).then(res => {
                 store.addToggle({content: "Новина додана", type: ToastTypes.Successful} as IToast)
                 news.push(res.data as INews)
-                news.sort((item1, item2) => item2.date - item1.date)
+                news.sort((item1, item2) => item2.id - item1.id)
                 setNews(news)
 
                 setNewNews({
@@ -121,7 +121,7 @@ const AddNewsPage = () => {
                     <p>Новини</p>
                 </div>
                 <div className={"grid grid-cols-4"}>
-                    {news.map((n, index) => (<NewsCard key={index} news={n}/>))}
+                    {news.slice(0, 4).map((n, index) => (<NewsCard key={index} news={n}/>))}
                 </div>
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
                     <Link to={RoutesName.NEWS_PAGE} className={"hover:text-[#AF8742] duration-200"}>
