@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import NewsCard from "../../components/cards/NewsCard";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
@@ -51,6 +51,14 @@ const AddNewsPage = () => {
 
     const forceUpdate = useForceUpdate()
 
+    const fileInputRef = useRef(null);
+
+    const handleClearFile = () => {
+        if (fileInputRef.current) {
+            // @ts-ignore
+            fileInputRef.current.value = null;
+        }
+    };
 
     const addNews = () => {
         if (newNews.content !== "" && newNews.name !== "" && newNews.img.name !== "empty") {
@@ -66,6 +74,7 @@ const AddNewsPage = () => {
                     content: "",
                     img: new File([], "empty", {})
                 } as INews)
+                handleClearFile()
 
                 forceUpdate()
             }).catch(err => {
@@ -99,7 +108,7 @@ const AddNewsPage = () => {
                         } className={"mb-3"}/>
 
                         <p>Фото</p>
-                        <input required onChange={e => handleFileChange(e)} className={"mb-4"} type="file"/>
+                        <input ref={fileInputRef} required onChange={e => handleFileChange(e)} className={"mb-4"} type="file"/>
 
                         <div className={"col-span-2  flex justify-center mb-5 "}>
                             <img className={(newNews.img.name !== "empty" ? "  border-2  " : "  ") + "w-1/6"}
