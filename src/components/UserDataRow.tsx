@@ -17,7 +17,7 @@ const UserDataRow: FC<UserProps> = ({user, color, counter}) => {
             + " hover:scale-[1.02] duration-200 hover:shadow-xl hover:cursor-pointer flex items-center"
         }>
             {Object.keys(user).map(key => (
-                key !== "password"
+                (key !== "password" && key!=="token")
                 && (
                     key === "roles"
                         ?

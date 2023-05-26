@@ -45,11 +45,11 @@ const ProfilePage = () => {
                                 <button onClick={() => {
                                     if (newUser.email !== store.user.email) {
                                         store.editUser("email", newUser.email).then(res => {
-                                            store.addToggle( {content:`Пошта змінена на ${newUser.email}` , type:ToastTypes.Successful} as IToast)
+                                            store.addToast( {content:`Пошта змінена на ${newUser.email}` , type:ToastTypes.Successful} as IToast)
                                             store.setUser(newUser)
                                         }).catch(e => {
                                             if (e) {
-                                                store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                                store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                                 setNewUser(store.user)
                                             }
                                         })
@@ -114,10 +114,10 @@ const ProfilePage = () => {
                                             </select>
                                             <button className={"flex items-center mb-3"} onClick={() => {
                                                 store.editUser("rank", newUser.rank).then(res => {
-                                                    store.addToggle( {content:`Звання змінено на ${newUser.rank}` , type:ToastTypes.Successful} as IToast)
+                                                    store.addToast( {content:`Звання змінено на ${newUser.rank}` , type:ToastTypes.Successful} as IToast)
                                                     store.setUser(newUser)
                                                 }).catch(e => {
-                                                    store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                                    store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                                 })
                                                 setFlags({...flags, rank: false})
                                             }}>
@@ -142,10 +142,10 @@ const ProfilePage = () => {
                                             </select>
                                             <button className={"flex items-center mb-3"} onClick={() => {
                                                 store.editUser("rank", newUser.rank).then(res => {
-                                                    store.addToggle( {content:`Звання змінено на ${newUser.rank}` , type:ToastTypes.Successful} as IToast)
+                                                    store.addToast( {content:`Звання змінено на ${newUser.rank}` , type:ToastTypes.Successful} as IToast)
                                                     store.setUser(newUser)
                                                 }).catch(e => {
-                                                    store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                                    store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                                 })
                                                 setFlags({...flags, rank: false})
                                             }}>
@@ -189,10 +189,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("surname", newUser.surname).then(res => {
-                                        store.addToggle( {content:`Прізвище змінено на ${newUser.surname}` , type:ToastTypes.Successful} as IToast)
+                                        store.addToast( {content:`Прізвище змінено на ${newUser.surname}` , type:ToastTypes.Successful} as IToast)
                                         store.setUser(newUser)
                                     }).catch(e => {
-                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                        store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, surname: false})
                                 }}>
@@ -225,10 +225,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("name", newUser.name).then(res => {
-                                        store.addToggle( {content:`Імʼя змінено на ${newUser.name}` , type:ToastTypes.Successful} as IToast)
+                                        store.addToast( {content:`Імʼя змінено на ${newUser.name}` , type:ToastTypes.Successful} as IToast)
                                         store.setUser(newUser)
                                     }).catch(e => {
-                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                        store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, name: false})
                                 }}>
@@ -262,10 +262,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("fatherhood", newUser.fatherhood).then(res => {
-                                        store.addToggle( {content:`По-батькові змінено на ${newUser.fatherhood}` , type:ToastTypes.Successful} as IToast)
+                                        store.addToast( {content:`По-батькові змінено на ${newUser.fatherhood}` , type:ToastTypes.Successful} as IToast)
                                         store.setUser(newUser)
                                     }).catch(e => {
-                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                        store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, fatherhood: false})
                                 }}>
@@ -301,10 +301,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("contactNumber", newUser.contactNumber).then(res => {
-                                        store.addToggle( {content:`Контактний номер змінено на ${newUser.contactNumber}` , type:ToastTypes.Successful} as IToast)
+                                        store.addToast( {content:`Контактний номер змінено на ${newUser.contactNumber}` , type:ToastTypes.Successful} as IToast)
                                         store.setUser(newUser)
                                     }).catch(e => {
-                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                        store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, contactNumber: false})
                                 }}>
@@ -337,10 +337,10 @@ const ProfilePage = () => {
                                        type="text"/>
                                 <button onClick={() => {
                                     store.editUser("unit", newUser.unit).then(res => {
-                                        store.addToggle( {content:`Підрозділ змінено на ${newUser.unit}` , type:ToastTypes.Successful} as IToast)
+                                        store.addToast( {content:`Підрозділ змінено на ${newUser.unit}` , type:ToastTypes.Successful} as IToast)
                                         store.setUser(newUser)
                                     }).catch(e => {
-                                        store.addToggle( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
+                                        store.addToast( {content:e.response.data.message, type:ToastTypes.Error} as IToast)
                                     })
                                     setFlags({...flags, unit: false})
                                 }}>

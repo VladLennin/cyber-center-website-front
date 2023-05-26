@@ -16,7 +16,7 @@ export default class Store {
     isAuth = false;
     isLoading = false;
     modalLogin = false;
-    toggles: IToast[] = [];
+    toasts: IToast[] = [];
 
     constructor() {
         makeAutoObservable(this)
@@ -38,17 +38,17 @@ export default class Store {
         this.isLoading = bool;
     }
 
-    addToggle(toggle: IToast) {
-        this.toggles.push(toggle)
+    addToast(toggle: IToast) {
+        this.toasts.push(toggle)
 
         setTimeout(() => {
-            this.toggles.shift()
-            console.log(this.toggles)
+            this.toasts.shift()
+            console.log(this.toasts)
         }, 30_000)
     }
 
-    setToggle(toggles: IToast[]) {
-        this.toggles = toggles
+    setToast(toggles: IToast[]) {
+        this.toasts = toggles
     }
 
     setModalLogin(bool: boolean) {

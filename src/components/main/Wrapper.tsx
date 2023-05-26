@@ -17,7 +17,7 @@ const Wrapper: FC<WrapperProps> = ({children}) => {
     return (
         <>
             <div className={"fixed right-[50px] top-[50px] z-50"}>
-                {store.toggles.map((toggle, index) => (
+                {store.toasts.map((toggle, index) => (
                     <ToastCustom key={index} toast={toggle}/>
                 ))}
             </div>

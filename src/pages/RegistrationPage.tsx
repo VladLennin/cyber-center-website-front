@@ -33,16 +33,16 @@ const RegistrationPage: FC = () => {
         ) {
             if (controlPassword === newUser.password) {
                 store.registration(newUser).then((res) => {
-                    store.addToggle({content: "Рєестрація успішна", type: ToastTypes.Successful} as IToast)
+                    store.addToast({content: "Рєестрація успішна", type: ToastTypes.Successful} as IToast)
                     navigate(RoutesName.MAIN_PAGE)
                 }).catch(err => {
-                    store.addToggle({content: err.response.data.message, type: ToastTypes.Error} as IToast)
+                    store.addToast({content: err.response.data.message, type: ToastTypes.Error} as IToast)
                 })
             } else {
-                store.addToggle({content: "Паролі не співпадають", type: ToastTypes.Warning} as IToast)
+                store.addToast({content: "Паролі не співпадають", type: ToastTypes.Warning} as IToast)
             }
         } else {
-            store.addToggle({content: "Якесь поле залишилось пустим", type: ToastTypes.Warning} as IToast)
+            store.addToast({content: "Якесь поле залишилось пустим", type: ToastTypes.Warning} as IToast)
         }
     }
 

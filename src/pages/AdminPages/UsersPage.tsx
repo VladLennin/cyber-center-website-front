@@ -33,7 +33,6 @@ const UsersPage = () => {
                 colorFlag = !colorFlag
                 counter = 0
             }
-
             table.push(
                 <UserDataRow counter={counter} color={colorFlag} key={users[i].id} user={users[i]}/>
             )
@@ -51,7 +50,7 @@ const UsersPage = () => {
                     className={"col-span-11 grid grid-cols-custom bg-gray-100 mb-4 rounded mx-5 py-2 proba-pro-medium text-xl"}>
                     {users[0] !== undefined &&
                         Object.keys(users[0]).map(key => (
-                            key !== "password" && (
+                            (key !== "password" && key !== "token") && (
                                 key === "id" ?
                                     <div className={"text-center"}>
                                         {key}
@@ -64,6 +63,7 @@ const UsersPage = () => {
                 </div>
                 {genTable()}
             </div>
+            {/*<button onClick={someFunc}>asdas</button>*/}
         </>
 
     );

@@ -26,11 +26,11 @@ const LoginModal: FC<LoginProps> = ({modal}) => {
             store.login(email, password).then(res => {
                 if (res.status === 201) {
                     store.closeModalLogin()
-                    store.addToggle({type: ToastTypes.Successful, content: "Авторизація успішна"} as IToast)
+                    store.addToast({type: ToastTypes.Successful, content: "Авторизація успішна"} as IToast)
                     navigate(RoutesName.MAIN_PAGE)
                 }
             }).catch(e => {
-                store.addToggle({type: ToastTypes.Error, content: e.response.data.message} as IToast)
+                store.addToast({type: ToastTypes.Error, content: e.response.data.message} as IToast)
             })
         }
     }

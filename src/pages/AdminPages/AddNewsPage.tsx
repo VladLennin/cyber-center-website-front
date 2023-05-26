@@ -39,7 +39,7 @@ const AddNewsPage = () => {
             if (validExtensions.includes(fileExtension)) {
                 setNewNews({...newNews, img: event.target.files[0]});
             } else {
-                store.addToggle({content: "Некоректне розширення файлу", type: ToastTypes.Warning} as IToast)
+                store.addToast({content: "Некоректне розширення файлу", type: ToastTypes.Warning} as IToast)
             }
         }
     };
@@ -63,7 +63,7 @@ const AddNewsPage = () => {
     const addNews = () => {
         if (newNews.content !== "" && newNews.name !== "" && newNews.img.name !== "empty") {
             NewsService.createNews(newNews).then(res => {
-                store.addToggle({content: "Новина додана", type: ToastTypes.Successful} as IToast)
+                store.addToast({content: "Новина додана", type: ToastTypes.Successful} as IToast)
                 news.push(res.data as INews)
                 news.sort((item1, item2) => item2.id - item1.id)
                 setNews(news)
@@ -78,10 +78,10 @@ const AddNewsPage = () => {
 
                 forceUpdate()
             }).catch(err => {
-                store.addToggle({content: "Відбулася помилка", type: ToastTypes.Error} as IToast)
+                store.addToast({content: "Відбулася помилка", type: ToastTypes.Error} as IToast)
             })
         } else {
-            store.addToggle({content: "Поля некоректні", type: ToastTypes.Warning} as IToast)
+            store.addToast({content: "Поля некоректні", type: ToastTypes.Warning} as IToast)
         }
     }
 

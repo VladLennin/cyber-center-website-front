@@ -1,5 +1,6 @@
 export enum Networks {
-    "ASU_Dnipro",
-    "Without_Network",
-    "Internet"
+    "Виберіть мережу",
+    "АСУ Дніпро",
+    "Без підключення до мережі",
+    "ІСД-інтернет"
 }

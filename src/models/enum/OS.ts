@@ -1,6 +1,7 @@
 export enum OS {
-    "XP",
-    "Windows_7",
-    "Windows_8_10",
-    "Other_App"
+    "Виберіть ОС",
+    "Windows XP",
+    "Windows 7",
+    "Windows 8-10",
+    "Додаткове ПЗ"
 }
