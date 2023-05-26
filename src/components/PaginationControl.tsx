@@ -10,7 +10,7 @@ interface PaginationProps {
 
 const PaginationControl: FC<PaginationProps> = ({page, limit, setPage, countPages, setLimit}) => {
     return (
-        <div className={"flex w-full justify-center items-center mb-5"}>
+        <div className={"flex w-full justify-center items-center "}>
             <div className={"border-2 rounded-xl flex items-center justify-center px-3 py-1"}>
                 <button className={"proba-pro-bold text-3xl mr-2"}
                         onClick={() => page !== 1 && setPage(page - 1)}>-

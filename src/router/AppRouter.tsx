@@ -28,6 +28,7 @@ import BackBtn from "../components/BackBtn";
 import FishingCardPage from "../pages/FishingCardPage";
 import AddNewsPage from "../pages/AdminPages/AddNewsPage";
 import NewsPageDetailed from "../pages/NewsPageDetailed";
+import LicensePage from "../pages/AdminPages/LicensePage";
 
 const AppRouter = () => {
 
@@ -62,6 +63,7 @@ const AppRouter = () => {
                     <Route path={RoutesName.ADMIN_UPDATES_PAGE} element={<AddUpdatePage/>}/>
                     <Route path={RoutesName.ADMIN_ADDITIONAL_PZ_PAGE} element={<AddAdditionalPzPage/>}/>
                     <Route path={RoutesName.ADMIN_FISHING_PAGE} element={<AddFishingExamplePage/>}/>
+                    <Route path={RoutesName.ADMIN_LICENSE_KEYS} element={<LicensePage/>}/>
                 </Route>
 
                 <Route element={<RequireAuth/>}>

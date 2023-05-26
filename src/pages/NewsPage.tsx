@@ -73,16 +73,21 @@ const NewsPage = () => {
     }
 
     return (
-        <>
+        <div className={"flex flex-col items-center justify-center mb-10"}>
             <p className={" text-center proba-pro-bold text-[6vh] mb-10"}>Новини
                 <i className="bi bi-newspaper ml-4"></i>
             </p>
-            <PaginationControl countPages={countPages} page={page} setPage={setPage} limit={limit} setLimit={setLimit}/>
-            <div className={"grid grid-cols-1 gap-8  justify-items-center "}>
-                {<>{genTable()}</>}
+            <div className={"border rounded shadow p-10 w-3/4"}>
+
+                <PaginationControl countPages={countPages} page={page} setPage={setPage} limit={limit}
+                                   setLimit={setLimit}/>
+                <div className={"grid grid-cols-1 gap-8  justify-items-center "}>
+                    {<>{genTable()}</>}
+                </div>
+                <PaginationControl countPages={countPages} page={page} setPage={setPage} limit={limit}
+                                   setLimit={setLimit}/>
             </div>
-            <PaginationControl countPages={countPages} page={page} setPage={setPage} limit={limit} setLimit={setLimit}/>
-        </>
+        </div>
 
 
     );

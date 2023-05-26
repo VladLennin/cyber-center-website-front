@@ -4,7 +4,6 @@ import {OS} from "../../models/enum/OS";
 import {Networks} from "../../models/enum/Networks";
 import UnitService from "../../service/UnitService";
 import {IUnit} from "../../models/IUnit";
-import {PzService} from "../../service/PzService";
 import {Context} from "../../index";
 import {IToast} from "../../models/IToast";
 import {ToastTypes} from "../../models/enum/ToastTypes";
@@ -75,7 +74,6 @@ const AddAntPzPage = () => {
                     Додати нове антивірусне ПЗ
                 </p>
                 <div className={"grid grid-cols-2 gap-10 items-center border p-8 shadow-md mb-14 max-w-[30%] w-[30%]"}>
-
                     <div className={"flex items-center"}>
                         <label className={"text-xl"} htmlFor="os">Підрозділ</label>
                         <button onClick={() => setAddUnit(!addUnit)} className={"hover:text-yellow-200 duration-100"}>

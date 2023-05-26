@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import {IUnit} from "../models/IUnit";
-import {OS} from "../models/enum/OS";
-import AccordionCustom from "./AccordionCustom";
+import {IUnit} from "../../models/IUnit";
+import {OS} from "../../models/enum/OS";
+import AccordionCustom from "../AccordionCustom";
 
 interface UnitProps {
     unit: IUnit
@@ -10,7 +10,7 @@ interface UnitProps {
 const UnitAntPz: FC<UnitProps> = ({unit}) => {
     return (
         <>
-            <p className={"proba-pro-medium text-2xl mt-8"}>{unit.name}</p>
+            <p className={"proba-pro-medium text-2xl "}>{unit.name}</p>
             <div className={"grid grid-cols-2 w-full"}>
                 <div className={"flex justify-center"}>
                     <AccordionCustom unit={unit} os={OS["Windows XP"]}/>

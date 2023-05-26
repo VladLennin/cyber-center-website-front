@@ -20,11 +20,18 @@ const NewsPageDetailed: FC = () => {
     }, [])
 
     return (
-        <div className={"w-screen flex items-center justify-center"}>
-            <div className={"border rounded p-10 "}>
+        <div className={"w-screen flex flex-col items-center justify-center mb-10"}>
+            <p className={"proba-pro-bold text-[6vh] "}>
                 {news.name}
-                {news.content}
-                <img className={"w-1/2"} src={FTP_URL_DOWNLOAD+news.imgHref} alt=""/>
+            </p>
+            <div className={"border rounded shadow justify-center flex flex-col items-center p-10 w-3/4"}>
+                <div className={"flex w-1/2"}>
+                    <img className={"rounded-2xl border-[6px]"} src={FTP_URL_DOWNLOAD + news.imgHref} alt=""/>
+                </div>
+
+                <div className={"proba-pro-light p-10"}>
+                    {news.content}
+                </div>
             </div>
         </div>
     );

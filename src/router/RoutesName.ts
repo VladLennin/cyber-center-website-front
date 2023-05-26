@@ -24,5 +24,6 @@ export enum RoutesName {
     ADMIN_UPDATES_PAGE="/admin/updates",
     ADMIN_ADDITIONAL_PZ_PAGE="/admin/additional",
     ADMIN_FISHING_PAGE="/admin/fishing",
+    ADMIN_LICENSE_KEYS = "/admin/licenses"
 
 }
