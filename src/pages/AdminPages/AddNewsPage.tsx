@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import NewsCard from "../../components/cards/NewsCard";
+import NewsCard from "../../components/news/NewsCard";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
 import {INews} from "../../models/INews";

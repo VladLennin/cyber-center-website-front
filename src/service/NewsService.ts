@@ -17,7 +17,15 @@ export default class NewsService {
         })
     }
 
+    static async getNewsPaginated(page: number, limit: number) {
+        return await $api.post('/news/paginated', {page, limit})
+    }
+
     static async getNews(count: number) {
-        return $api.post('/news', {count})
+        return await $api.post('/news', {count})
+    }
+
+    static async getCountNews() {
+        return await $api.get('/news/count')
     }
 }

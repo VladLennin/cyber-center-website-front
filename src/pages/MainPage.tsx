@@ -15,7 +15,7 @@ import rectangle from "./../assets/Rectangle.svg"
 // @ts-ignore
 import laptopMainPage from "./../assets/laptopMainPage.svg"
 import {INews} from "../models/INews";
-import NewsCard from "../components/cards/NewsCard";
+import NewsCard from "../components/news/NewsCard";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../router/RoutesName";
 
