@@ -105,7 +105,7 @@ const AddNewsPage = () => {
                         <textarea value={newNews.content} onChange={(e) => {
                             setNewNews({...newNews, content: e.target.value})
                         }
-                        } className={"mb-3"}/>
+                        } className={"mb-3 rounded"}/>
 
                         <p>Фото</p>
                         <input ref={fileInputRef} required onChange={e => handleFileChange(e)} className={"mb-4"} type="file"/>

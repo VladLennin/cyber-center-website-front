@@ -5,7 +5,9 @@ const ContactsPage = () => {
     return (
         <>
             <div className={"flex justify-start items-center min-h-[77vh] flex-col proba-pro-medium mb-10 mt-5"}>
-                <p className={"proba-pro-bold text-[6vh]"}>Контакти</p>
+                <p className={"proba-pro-bold text-[6vh] "}>Контакти
+                    <i className="bi bi-telephone ml-4"></i>
+                </p>
                 <div className={"border rounded shadow p-10 "}>
                     <div className={"flex justify-center proba-pro-light mb-5"}>
                         <p className={"w-[35vw] text-lg"}>

@@ -27,7 +27,9 @@ const ProfilePage = () => {
     return (
         <>
             <div className={"flex justify-start items-center min-h-[77vh] flex-col proba-pro-medium"}>
-                <p className={"proba-pro-bold text-[6vh]"}>Профіль</p>
+                <p className={"proba-pro-bold text-[6vh]"}>Профіль
+                    <i className="bi bi-person ml-4"></i>
+                </p>
                 <div className={"border rounded shadow p-10 "}>
                     <div className={"grid mb-4 grid-cols-2  "}>
                         <p className={"text-lg"}>Email</p>

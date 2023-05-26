@@ -5,7 +5,11 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'custom': 'repeat(21, minmax(0, 1fr))',
+      },
+    },
   },
   plugins: [
     require('flowbite/plugin')

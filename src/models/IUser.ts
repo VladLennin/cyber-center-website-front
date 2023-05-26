@@ -5,7 +5,6 @@ import {IRole} from "./IRole";
 
 export interface IUser {
     id: number;
-    ipAddress: string;
     email: string;
     password: string;
     rank: MilitaryRanks | ShipRanks;
@@ -15,7 +14,7 @@ export interface IUser {
     contactNumber: string;
     unit: string;
     roles: IRole[];
-
-
+    createdAt: string;
+    updatedAt: string;
 
 }

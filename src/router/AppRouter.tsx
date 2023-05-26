@@ -27,6 +27,7 @@ import AddFishingExamplePage from "../pages/AdminPages/AddFishingExamplePage";
 import BackBtn from "../components/BackBtn";
 import FishingCardPage from "../pages/FishingCardPage";
 import AddNewsPage from "../pages/AdminPages/AddNewsPage";
+import NewsPageDetailed from "../pages/NewsPageDetailed";
 
 const AppRouter = () => {
 
@@ -45,6 +46,7 @@ const AppRouter = () => {
                 <Route path={RoutesName.FISHING_PAGE} element={<FishingPage/>}/>
                 <Route path={RoutesName.CYBER_COURSE_PAGE} element={<CyberCoursePage/>}/>
                 <Route path={RoutesName.NEWS_PAGE} element={<NewsPage/>}/>
+                <Route path={RoutesName.NEWS_PAGE + "/:id"} element={<NewsPageDetailed/>}/>
                 <Route path={RoutesName.UNAUTHORIZED} element={<UnauthorizedPage/>}/>
                 <Route path={RoutesName.CONTACTS_PAGE} element={<ContactsPage/>}/>
                 <Route path={RoutesName.TEST_RESULT_PAGE} element={<TestResultPage/>}/>

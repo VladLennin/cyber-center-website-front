@@ -13,7 +13,7 @@ import {RoutesName} from "../router/RoutesName";
 const RegistrationPage: FC = () => {
 
 
-    const [newUser, setNewUser] = useState<IUser>({ipAddress:"127.0.0.1",roles:[{value:Roles.USER} as IRole]} as IUser)
+    const [newUser, setNewUser] = useState<IUser>({roles:[{value:Roles.USER} as IRole]} as IUser)
     const [controlPassword, setControlPassword] = useState<string>("")
     const [isShipsRank, setIsShipsRank] = useState<boolean>(false)
     const {store} = useContext(Context)
@@ -28,7 +28,6 @@ const RegistrationPage: FC = () => {
             newUser.surname &&
             newUser.fatherhood &&
             newUser.contactNumber &&
-            newUser.ipAddress &&
             newUser.unit &&
             newUser.password
         ) {

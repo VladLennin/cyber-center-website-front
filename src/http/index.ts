@@ -2,13 +2,19 @@ import axios from 'axios'
 import {AuthResponse} from "../models/responce/Authresponce";
 
 export const API_URL = "http://10.5.113.112:3001/api"
+
+// export const API_URL = "http://localhost:3001/api"
+
 export const FTP_URL = "http://10.5.113.112:3005/ftp"
+
+export const FTP_URL_DOWNLOAD = FTP_URL + "/download/"
+export const FTP_URL_UPLOAD = FTP_URL + "/upload/"
+
 
 const $api = axios.create({
     withCredentials: true,
     baseURL: API_URL,
 })
-
 
 
 $api.interceptors.request.use((config) => {

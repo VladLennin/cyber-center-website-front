@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {INews} from "../../models/INews";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
+import {FTP_URL_DOWNLOAD} from "../../http";
 
 
 interface NewsProps {
@@ -16,7 +17,7 @@ const NewsCard: FC<NewsProps> = ({news}) => {
                 className={"text-sm max-w-[24vw]   p-2 rounded-xl  m-2"}>
                 <div className={"flex justify-center"}>
                     <img className={"rounded-[16px] mb-2  text-center"}
-                         src={"http://10.5.113.112:3005/ftp/download/" + news.imgHref}
+                         src={FTP_URL_DOWNLOAD + news.imgHref}
                          alt="qwe"/>
                 </div>
 

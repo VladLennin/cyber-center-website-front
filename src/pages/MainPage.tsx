@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 // @ts-ignore
 import esetShieldlogo from "./../assets/Lock shield.svg"
@@ -18,11 +18,20 @@ import {INews} from "../models/INews";
 import NewsCard from "../components/news/NewsCard";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../router/RoutesName";
+import NewsService from "../service/NewsService";
 
 
 const MainPage: FC = () => {
 
     const [news, setNews] = useState<INews[]>([])
+
+    useEffect(() => {
+        NewsService.getNews(4).then(res => {
+            setNews(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [])
 
     return (
         <div className={"flex flex-col justify-center items-center w-[100%] mt-5"}>
@@ -155,12 +164,12 @@ const MainPage: FC = () => {
                 </div>
             </div>
 
-            <div className={"bg-[#F9F9F9]  px-[12vw] w-[100%] flex flex-col justify-center"}>
+            <div className={"bg-[#F9F9F9] px-10"}>
                 <div className={"flex text-3xl proba-pro-medium my-5"}>
                     <p>Новини</p>
                 </div>
-                <div className={"flex  flex-wrap"}>
-                    {news.slice(0, 4).map((n, index) => (<NewsCard key={index} news={n}/>))}
+                <div className={"grid grid-cols-4 gap-20"}>
+                    {news.map((n, index) => (<NewsCard key={index} news={n}/>))}
                 </div>
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
                     <Link to={RoutesName.NEWS_PAGE} className={"hover:text-[#AF8742] duration-200"}>

@@ -58,7 +58,9 @@ const FishingPage = () => {
     return (<>
             <div className={"flex justify-start items-center min-h-[77vh]  flex-col proba-pro-medium"}>
 
-                <p className={"proba-pro-bold text-[6vh]"}>Фішинг</p>
+                <p className={"proba-pro-bold text-[6vh]"}>Фішинг
+                    <i className="bi bi-exclamation-triangle ml-4"></i>
+                </p>
                 <p className={"proba-pro-light w-[28vw] text-center"}>
                     Загальна база електронних листів, які містять шкідливі файли або посилання.
                     Пошук можливий по ймовірно зловмисному відправнику або по змісту повідомлення

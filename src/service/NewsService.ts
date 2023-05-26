@@ -28,4 +28,8 @@ export default class NewsService {
     static async getCountNews() {
         return await $api.get('/news/count')
     }
+
+    static async getNewsById(id:number){
+        return await $api.get(`/news?id=${id}`)
+    }
 }

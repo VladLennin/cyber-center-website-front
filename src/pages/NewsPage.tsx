@@ -74,7 +74,9 @@ const NewsPage = () => {
 
     return (
         <>
-            <p className={" text-center proba-pro-bold text-[6vh] mb-10"}>Новини</p>
+            <p className={" text-center proba-pro-bold text-[6vh] mb-10"}>Новини
+                <i className="bi bi-newspaper ml-4"></i>
+            </p>
             <PaginationControl countPages={countPages} page={page} setPage={setPage} limit={limit} setLimit={setLimit}/>
             <div className={"grid grid-cols-1 gap-8  justify-items-center "}>
                 {<>{genTable()}</>}
