@@ -14,4 +14,8 @@ export default class UserService {
     static async editLogin(email: string, login: string): Promise<void> {
         return await $api.post('/user/edit-login', {email, login})
     }
+
+    static async getUserByPk(userId:number){
+        return await $api.post("users/pk", {userId})
+    }
 }

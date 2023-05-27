@@ -77,7 +77,7 @@ const NewsPage = () => {
             <p className={" text-center proba-pro-bold text-[6vh] mb-10"}>Новини
                 <i className="bi bi-newspaper ml-4"></i>
             </p>
-            <div className={"border rounded shadow p-10 w-3/4"}>
+            <div className={"border rounded shadow py-10 w-3/4"}>
 
                 <PaginationControl countPages={countPages} page={page} setPage={setPage} limit={limit}
                                    setLimit={setLimit}/>

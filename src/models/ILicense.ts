@@ -2,6 +2,8 @@ export interface ILicense {
     id:number;
     userId:number;
     status:string;
-    allowedBy:number;
+    allowedById:number;
     key:string;
+    createdAt:string;
+    updatedAt: string;
 }
