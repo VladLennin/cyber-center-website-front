@@ -8,7 +8,7 @@ const FishingPage = () => {
         {
             img: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
             date: new Date(),
-            caseNumber: 1,
+            id: 1,
             fakeSender: "asdasd@mail.ru",
             sender: "ministOfDefence@mil.gov.ua",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit."
@@ -16,7 +16,7 @@ const FishingPage = () => {
         {
             img: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
             date: new Date(),
-            caseNumber: 1,
+            id: 1,
             fakeSender: "asdasd@mail.ru",
             sender: "ministOfDefence@mil.gov.ua",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit."
@@ -24,7 +24,7 @@ const FishingPage = () => {
         {
             img: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
             date: new Date(),
-            caseNumber: 1,
+            id: 1,
             fakeSender: "asdasd@mail.ru",
             sender: "ministOfDefence@mil.gov.ua",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit."
@@ -32,7 +32,7 @@ const FishingPage = () => {
         {
             img: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
             date: new Date(),
-            caseNumber: 1,
+            id: 1,
             fakeSender: "asdasd@mail.ru",
             sender: "ministOfDefence@mil.gov.ua",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit."
@@ -40,7 +40,7 @@ const FishingPage = () => {
         {
             img: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
             date: new Date(),
-            caseNumber: 1,
+            id: 1,
             fakeSender: "asdasd@mail.ru",
             sender: "ministOfDefence@mil.gov.ua",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit."
@@ -48,7 +48,7 @@ const FishingPage = () => {
         {
             img: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
             date: new Date(),
-            caseNumber: 1,
+            id: 1,
             fakeSender: "asdasd@mail.ru",
             sender: "ministOfDefence@mil.gov.ua",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem corporis dolor dolorum eum fugit laborum magnam magni molestiae mollitia nesciunt numquam odit perferendis quasi, quia quo, sit tenetur velit."

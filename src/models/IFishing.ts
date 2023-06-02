@@ -1,7 +1,7 @@
 export interface IFishing {
     img: string;
     date: Date;
-    caseNumber: number;
+    id: number;
     fakeSender: string;
     sender: string;
     description: string;

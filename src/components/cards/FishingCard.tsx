@@ -22,7 +22,7 @@ const FishingCard: FC<FishingCardProps> = ({cardData}) => {
 
                 <div className={"flex proba-pro-light items-center mb-1"}>
                     <p className={"text-[#909090] mr-3"}>Номер кейсу:</p>
-                    <p>{cardData.caseNumber}</p>
+                    <p>{cardData.id}</p>
                 </div>
 
                 <div className={"flex proba-pro-light items-center mb-1"}>
@@ -42,7 +42,7 @@ const FishingCard: FC<FishingCardProps> = ({cardData}) => {
 
             <div className={"col-span-2 flex flex-col justify-end"}>
                 <Link className={"flex hover:text-[#AF8742] duration-200"}
-                      to={RoutesName.FISHING_CARD_PAGE + "/" + cardData.caseNumber}>
+                      to={RoutesName.FISHING_CARD_PAGE + "/" + cardData.id}>
                     <p> Детальніше</p>
                     <i className="bi bi-arrow-right"></i>
                 </Link>
