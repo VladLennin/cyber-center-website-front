@@ -12,9 +12,10 @@ interface LicenseModalProps {
     closeModal: () => any;
     user: IUser;
     license: ILicense;
+    setLicenses: (any: any) => any;
 }
 
-const LicenseModalAdmin: FC<LicenseModalProps> = ({modal, closeModal, user, license}) => {
+const LicenseModalAdmin: FC<LicenseModalProps> = ({modal, closeModal, user, license, setLicenses}) => {
     const [keyInput, setKeyInput] = useState(false)
 
     const [inputValues, setInputValues] = useState(['', '', '', '', '']);
@@ -31,6 +32,14 @@ const LicenseModalAdmin: FC<LicenseModalProps> = ({modal, closeModal, user, lice
             inputRefs.current[index + 1].focus();
         }
     };
+
+    const updateLicenses = () => {
+        LicenseService.getAllRequests().then(res => {
+            setLicenses(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 
     return (
         <Modal title={"Підтвердження ліцензії"} show={modal} close={closeModal}>
@@ -69,6 +78,7 @@ const LicenseModalAdmin: FC<LicenseModalProps> = ({modal, closeModal, user, lice
                                 if (key.length === 24) {
                                     LicenseService.acceptLicense(license.id, store.user.id, key).then(res => {
                                         console.log(res)
+                                        updateLicenses()
                                     }).catch(err => {
                                         console.log(err)
                                     })
@@ -103,6 +113,7 @@ const LicenseModalAdmin: FC<LicenseModalProps> = ({modal, closeModal, user, lice
                                     closeModal()
                                     LicenseService.rejectLicense(license.id, store.user.id).then(res => {
                                         console.log(res)
+                                        updateLicenses()
                                     }).catch(err => {
                                         console.log(err)
                                     })

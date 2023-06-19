@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {Context} from "../index";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import {RoutesName} from "./RoutesName";
 import RequireAuth from "./RequireAuth";
 import RegistrationPage from "../pages/RegistrationPage";
@@ -33,6 +33,8 @@ import LicensePage from "../pages/AdminPages/LicensePage";
 const AppRouter = () => {
 
     const {store} = useContext(Context)
+
+
     return (
         <>
             <BackBtn/>
@@ -43,12 +45,18 @@ const AppRouter = () => {
                     <Route path={RoutesName.REGISTRATION_PAGE} element={<MainPage/>}/>
                 }
 
+                {
+                    store.isAuth ?
+                        <Route path={RoutesName.UNAUTHORIZED} element={<MainPage/>}/>
+                        :
+                        <Route path={RoutesName.UNAUTHORIZED} element={<UnauthorizedPage/>}/>
+                }
+
                 <Route path={RoutesName.DOCUMENTS_PAGE} element={<DocumentsPage/>}/>
                 <Route path={RoutesName.FISHING_PAGE} element={<FishingPage/>}/>
                 <Route path={RoutesName.CYBER_COURSE_PAGE} element={<CyberCoursePage/>}/>
                 <Route path={RoutesName.NEWS_PAGE} element={<NewsPage/>}/>
                 <Route path={RoutesName.NEWS_PAGE + "/:id"} element={<NewsPageDetailed/>}/>
-                <Route path={RoutesName.UNAUTHORIZED} element={<UnauthorizedPage/>}/>
                 <Route path={RoutesName.CONTACTS_PAGE} element={<ContactsPage/>}/>
                 <Route path={RoutesName.TEST_RESULT_PAGE} element={<TestResultPage/>}/>
                 <Route path={RoutesName.MAIN_PAGE} element={<MainPage/>}/>

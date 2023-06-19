@@ -17,7 +17,7 @@ const Modal: FC<ModalProps> = ({show, close, children, title}) => {
                         className="modalContainer z-10"
                         onClick={() => close()}
                     >
-                        <div className="modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal " onClick={(e) => e.stopPropagation()}>
                             <header className="modal_header">
                                 <h2 className="modal_header-title proba-pro-bold text-3xl">{title}</h2>
                                 <button className="close" onClick={() => close()}>

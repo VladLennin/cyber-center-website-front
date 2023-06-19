@@ -97,7 +97,7 @@ const Header = () => {
                     </button>
                     {(pzFlag1 || pzFlag2) &&
                         <>
-                            <div className={"absolute top-[42px] left-20"}>
+                            <div className={"absolute z-0 top-[42px] left-20"}>
                                 <img src={vector} alt=""/>
                             </div>
                             <div

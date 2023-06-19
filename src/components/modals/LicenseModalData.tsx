@@ -25,16 +25,18 @@ const LicenseModalData: FC<ModalProps> = ({modal, closeModal, license}) => {
     return (
         <Modal title={"Подробиці запиту"} show={modal} close={closeModal}>
             <div className={"grid grid-cols-2 proba-pro-medium text-xl"}>
-                <p className={"mb-3 text-xl"}>Адміністратор</p>
-                <p className={(license.status === 'Відхилено' ? " text-red-500 " : " text-green-500 ") + " text-2xl mb-4"}>{license.status}</p>
-                    <div className={"grid grid-cols-2 col-span-2 proba-pro-medium text-lg w-full "}>
-                        <p>Імя:</p> <p>{userAllowed.name}</p>
-                        <p> Фамілія:</p><p>{userAllowed.surname}</p>
-                        <p> По-батькові:</p><p>{userAllowed.fatherhood}</p>
-                        <p> Підрозділ:</p><p> {userAllowed.unit}</p>
-                        <p> Контактний номер:</p><p> {userAllowed.contactNumber}</p>
-                        <p> Пошта:</p><p> {userAllowed.email}</p>
-                    </div>
+                <div className={"flex gap-2 col-span-2"}>
+                    <p className={(license.status === 'Відхилено' ? " text-red-500 " : " text-green-500 ") + " text-2xl  text-center"}>{license.status}</p>
+                    <p className={"mb-3 text-2xl text-center"}>Адміністратором:</p>
+                </div>
+                <div className={"grid grid-cols-2 col-span-2 proba-pro-medium text-lg w-full "}>
+                    <p>Імя:</p> <p>{userAllowed.name}</p>
+                    <p> Фамілія:</p><p>{userAllowed.surname}</p>
+                    <p> По-батькові:</p><p>{userAllowed.fatherhood}</p>
+                    <p> Підрозділ:</p><p> {userAllowed.unit}</p>
+                    <p> Контактний номер:</p><p> {userAllowed.contactNumber}</p>
+                    <p> Пошта:</p><p> {userAllowed.email}</p>
+                </div>
             </div>
         </Modal>
     );

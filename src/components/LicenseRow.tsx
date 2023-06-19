@@ -6,14 +6,16 @@ import {IToast} from "../models/IToast";
 import {ToastTypes} from "../models/enum/ToastTypes";
 import LicenseModalAdmin from "./modals/LicenseModalAdmin";
 import LicenseModalData from "./modals/LicenseModalData";
+import {ILicense} from "../models/ILicense";
 
 interface LicenseProps {
     license: any;
     counter: number;
     color: boolean;
+    setLicenses: (any: any) => any;
 }
 
-const LicenseRow: FC<LicenseProps> = ({license, counter, color}) => {
+const LicenseRow: FC<LicenseProps> = ({license, counter, color, setLicenses}) => {
 
 
     const [user, setUser] = useState<IUser>({} as IUser)
@@ -29,8 +31,7 @@ const LicenseRow: FC<LicenseProps> = ({license, counter, color}) => {
                 store.addToast({content: err.res.data.message, type: ToastTypes.Error} as IToast)
             })
             setModalForAnswer(true)
-        }
-        else{
+        } else {
             setModalData(true)
         }
     }
@@ -44,10 +45,13 @@ const LicenseRow: FC<LicenseProps> = ({license, counter, color}) => {
     }
 
 
+
     return (
         <>
-            <LicenseModalAdmin user={user} license={license} modal={modalForAnswer} closeModal={closeModalForAnswer}></LicenseModalAdmin>
-            <LicenseModalData  license={license} modal={modalData} closeModal={closeModalData}></LicenseModalData>
+            <LicenseModalAdmin setLicenses={setLicenses} user={user} license={license}
+                               modal={modalForAnswer}
+                               closeModal={closeModalForAnswer}></LicenseModalAdmin>
+            <LicenseModalData license={license} modal={modalData} closeModal={closeModalData}></LicenseModalData>
             <div onClick={getUserLicense} className={(!color ? " bg-gray-100 " : " bg-white ")
                 + (counter === 0 && " rounded-t-xl ")
                 + (counter === 2 && " rounded-b-xl ")
@@ -56,7 +60,7 @@ const LicenseRow: FC<LicenseProps> = ({license, counter, color}) => {
             }>
                 {Object.keys(license).map(key => (
                         (
-                            <div className={(key === 'key' ? " col-span-3 " : " ") +
+                            <div key={license.id + key} className={(key === 'key' ? " col-span-3 " : " ") +
                                 ((key === 'status' && license[key] === "Відхилено") && ' text-red-500 ') +
                                 ((key === 'status' && license[key] === "Підтверджено") && ' text-green-500 ') +
                                 ((key === 'status' && license[key] === "Відправлено") && ' text-yellow-500 ') +

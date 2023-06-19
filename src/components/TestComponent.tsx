@@ -3,6 +3,7 @@ import {TestModel} from "../models/TestModel";
 import QuestionCard from "./cards/QuestionCard";
 import {Link, useNavigate} from "react-router-dom";
 import {RoutesName} from "../router/RoutesName";
+import {createHash} from "crypto";
 
 interface TestProps {
     test: TestModel;
@@ -40,14 +41,14 @@ const TestComponent: FC<TestProps> = ({test}) => {
     return (
         <div>
             {test.questions.map((question, index) => (
-                <div className={(index !== activeQuestion ? " hidden" : "")}>
-                    <QuestionCard
-                        countQuestions={test.questions.length}
-                        setActiveQuestion={setActiveQuestion}
-                        answers={answers}
-                        setAnswers={setAnswers}
-                        question={test.questions[activeQuestion]}
-                        questionNumber={activeQuestion}
+                <div key={index} className={(index !== activeQuestion ? " hidden" : "")}>
+                    <QuestionCard key={question.question}
+                                  countQuestions={test.questions.length}
+                                  setActiveQuestion={setActiveQuestion}
+                                  answers={answers}
+                                  setAnswers={setAnswers}
+                                  question={test.questions[activeQuestion]}
+                                  questionNumber={activeQuestion}
                     />
                 </div>
 
@@ -55,14 +56,14 @@ const TestComponent: FC<TestProps> = ({test}) => {
 
             <div className={"flex mt-5 justify-center"}>
                 {test.questions.map((question, index) => (
-                    <button
-                        onClick={() => {
-                            setActiveQuestion(index)
-                        }}
-                        className={(activeQuestion === index ? "bg-blue-600 " : " ")
-                            + " rounded border ml-2 px-4 py-2"
-                            + (answers.correctAnswered.includes(index) ? " bg-green-600 " : "")
-                            + (answers.incorrectAnswered.includes(index) ? " bg-red-600 " : "")}>{index + 1}</button>
+                    <button key={index}
+                            onClick={() => {
+                                setActiveQuestion(index)
+                            }}
+                            className={(activeQuestion === index ? "bg-blue-600 " : " ")
+                                + " rounded border ml-2 px-4 py-2"
+                                + (answers.correctAnswered.includes(index) ? " bg-green-600 " : "")
+                                + (answers.incorrectAnswered.includes(index) ? " bg-red-600 " : "")}>{index + 1}</button>
                 ))}
 
                 <button

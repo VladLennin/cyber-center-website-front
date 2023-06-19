@@ -54,7 +54,7 @@ const NewsPage = () => {
                 counter++
             } else {
                 tempNews.push(news[i])
-                table.push(<NewsRow color={flag} news={tempNews}/>)
+                table.push(<NewsRow key={news[i].id} color={flag} news={tempNews}/>)
                 tempNews = []
                 counter = 0
                 flag = !flag
@@ -67,7 +67,7 @@ const NewsPage = () => {
             for (let i = 0; i < lefts; i++) {
                 temp.push(news[news.length - i - 1])
             }
-            table.push(<NewsRow news={temp} color={flag}/>)
+            table.push(<NewsRow key={temp[0].id} news={temp} color={flag}/>)
         }
         return table
     }

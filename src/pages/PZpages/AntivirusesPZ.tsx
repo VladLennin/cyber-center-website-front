@@ -37,7 +37,7 @@ const AntivirusesPZ = () => {
                         </button>
                     </div>
                     {units.map(unit => (
-                        <UnitAntPz unit={unit}/>
+                        <UnitAntPz key={unit.id} unit={unit}/>
                     ))}
                 </div>
             </div>

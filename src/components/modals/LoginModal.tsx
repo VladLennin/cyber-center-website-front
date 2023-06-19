@@ -23,15 +23,19 @@ const LoginModal: FC<LoginProps> = ({modal}) => {
     }
     const login = () => {
         if (password.length > 0 && email.length > 0) {
-            store.login(email, password).then(res => {
-                if (res.status === 201) {
-                    store.closeModalLogin()
-                    store.addToast({type: ToastTypes.Successful, content: "Авторизація успішна"} as IToast)
-                    navigate(RoutesName.MAIN_PAGE)
-                }
-            }).catch(e => {
-                store.addToast({type: ToastTypes.Error, content: e.response.data.message} as IToast)
-            })
+            try {
+                store.login(email, password).then(res => {
+                    if (res.status === 201) {
+                        store.closeModalLogin()
+                        store.addToast({type: ToastTypes.Successful, content: "Авторизація успішна"} as IToast)
+                        navigate(RoutesName.MAIN_PAGE)
+                    }
+                }).catch(e => {
+                    store.addToast({type: ToastTypes.Error, content: e.response.data.message} as IToast)
+                })
+            }catch(e){
+                console.log(e)
+            }
         }
     }
 

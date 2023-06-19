@@ -39,9 +39,9 @@ const QuestionCard: FC<QuestionProps> = ({
             <div className={"col-span-12 grid grid-cols-2 gap-5 mt-5 border-t-[2px] mx-2 border-t-[#444C37] pt-4 "}>
                 {
                     question.answers.map((answer, index) => (
-                        <>
+                        <div key={index}>
                             {index === question.correctAnswer ?
-                                <button onClick={() => {
+                                <button  onClick={() => {
                                     setAnswered(true)
                                     setChosenAnswer(index)
                                     setTimeout(() => questionNumber !== countQuestions-1 && setActiveQuestion(questionNumber + 1), 750)
@@ -72,7 +72,7 @@ const QuestionCard: FC<QuestionProps> = ({
                             }
 
 
-                        </>
+                        </div>
 
                     ))
                 }

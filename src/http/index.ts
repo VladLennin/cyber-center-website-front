@@ -1,8 +1,10 @@
 import axios from 'axios'
 import {AuthResponse} from "../models/responce/Authresponce";
 
-export const API_URL = "http://10.5.113.112:3001/api"
-export const FTP_URL = "http://10.5.113.112:3005/ftp"
+// export const API_URL = "https://10.5.113.112:3001/api"
+export const API_URL = "https://10.5.113.112:3001/api"
+
+export const FTP_URL = "https://10.5.113.112:3005/ftp"
 
 export const FTP_URL_DOWNLOAD = FTP_URL + "/download/"
 export const FTP_URL_UPLOAD = FTP_URL + "/upload/"
@@ -23,7 +25,7 @@ $api.interceptors.response.use((config) => {
     return config;
 }, async (error) => {
     const originalRequest = error.config;
-    if (error.response.status == 401 && error.config && !error.config._isRetry) {
+    if (error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true;
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/refresh `, {withCredentials: true})

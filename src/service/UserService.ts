@@ -18,4 +18,12 @@ export default class UserService {
     static async getUserByPk(userId:number){
         return await $api.post("users/pk", {userId})
     }
+
+    static async getUsersPaginated(page: number, limit: number) {
+        return await $api.post('/users/paginated', {page, limit})
+    }
+
+    static async getCountUsers() {
+        return await $api.get('/users/count')
+    }
 }

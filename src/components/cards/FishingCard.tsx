@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {IFishing} from "../../models/IFishing";
 import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
+import {FTP_URL_DOWNLOAD, FTP_URL_UPLOAD} from "../../http";
 
 interface FishingCardProps {
     cardData: IFishing
@@ -10,13 +11,13 @@ interface FishingCardProps {
 const FishingCard: FC<FishingCardProps> = ({cardData}) => {
     return (
         <div className={"grid grid-cols-12 w-[50vw] my-14 gap-4"}>
-            <div className={"col-span-12 flex justify-center"}>
-                <img src={cardData.img} alt=""/>
+            <div className={"col-span-12 flex justify-center  "}>
+                <img className={"w-1/2"} src={FTP_URL_DOWNLOAD + cardData.img} alt=""/>
             </div>
             <div className={"col-span-10"}>
                 <div className={"flex"}>
                     <p className={" bg-[#AF8742] px-2 py-1 text-white"}>
-                        {cardData.date.getDate()}/{cardData.date.getMonth()}/{cardData.date.getFullYear()}
+                        {cardData.date.split('T')[0]}
                     </p>
                 </div>
 

@@ -21,12 +21,12 @@ export default class NewsService {
         return await $api.post('/news/paginated', {page, limit})
     }
 
-    static async getNews(count: number) {
-        return await $api.post('/news', {count})
-    }
-
     static async getCountNews() {
         return await $api.get('/news/count')
+    }
+
+    static async getNews(count: number) {
+        return await $api.post('/news', {count})
     }
 
     static async getNewsById(id:number){

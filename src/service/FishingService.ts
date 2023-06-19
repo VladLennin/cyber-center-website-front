@@ -16,4 +16,19 @@ export class FishingService {
         })
     }
 
+    static async getFishingPaginated(page: number, limit: number) {
+        return await $api.post('/fishing/paginated', {page, limit})
+    }
+
+    static async getFishing(count: number) {
+        return await $api.post('/fishing', {count})
+    }
+
+    static async getCountFishing() {
+        return await $api.get('/fishing/count')
+    }
+
+    static async getFishingById(id: number) {
+        return await $api.get(`/fishing?id=${id}`)
+    }
 }

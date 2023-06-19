@@ -23,4 +23,11 @@ export class LicenseService {
         return await $api.post("/license/accept", {licenseId, userAllowedId, key})
     }
 
+    static async getLicensePaginated(page: number, limit: number) {
+        return await $api.post("/license/paginated", {page, limit})
+    }
+
+    static async getCountLicense() {
+        return await $api.get('/license/count')
+    }
 }

@@ -25,7 +25,7 @@ const PaginationControl: FC<PaginationProps> = ({page, limit, setPage, countPage
 
             <div className={"flex items-center justify-center ml-4 border-2 rounded-2xl p-2"}>
                 <label htmlFor="countOnPage">Кількість:</label>
-                <select value={limit} defaultValue={limit} onChange={(e) => {
+                <select value={limit}  onChange={(e) => {
                     setLimit(Number(e.target.value))
                 }} className={"border-none focus:border-none ml-2"} name="" id="countOnPage">
                     <option value={4}>4</option>
