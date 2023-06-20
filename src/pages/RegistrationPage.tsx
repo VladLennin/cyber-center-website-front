@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 import {MilitaryRanks} from "../models/enum/MilitaryRanks";
 import {IUser} from "../models/IUser";
 import {ShipRanks} from "../models/enum/ShipRanks";
@@ -13,12 +13,11 @@ import {RoutesName} from "../router/RoutesName";
 const RegistrationPage: FC = () => {
 
 
-    const [newUser, setNewUser] = useState<IUser>({roles:[{value:Roles.USER} as IRole]} as IUser)
+    const [newUser, setNewUser] = useState<IUser>({roles: [{value: Roles.USER} as IRole]} as IUser)
     const [controlPassword, setControlPassword] = useState<string>("")
     const [isShipsRank, setIsShipsRank] = useState<boolean>(false)
     const {store} = useContext(Context)
     const navigate = useNavigate()
-
 
 
     const registration = () => {

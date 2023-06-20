@@ -16,7 +16,7 @@ const ToastCustom: FC<ToastProps> = ({toast}) => {
 
         if (toast.type == ToastTypes.Successful) {
             return (
-                <Toast  className={" bg-green-400 flex items-center justify-between mb-2 z-50"}>
+                <Toast  className={" bg-green-400 flex items-center justify-between mb-2 z-50 "}>
                     <div className={"flex"}>
                         <i className={"bi bi-check2-all text-green-500 mr-4"}></i>
                         <div className={"proba-pro-medium "}>

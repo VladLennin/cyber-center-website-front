@@ -22,8 +22,6 @@ const Header = () => {
     const [pzFlag1, setPzFlag1] = useState<boolean>(false);
     const [pzFlag2, setPzFlag2] = useState<boolean>(false);
     const {store} = useContext(Context)
-    const navigate = useNavigate()
-
 
     return (
         <>

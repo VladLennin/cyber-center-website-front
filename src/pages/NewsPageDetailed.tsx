@@ -1,15 +1,13 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {INews} from "../models/INews";
 import NewsService from "../service/NewsService";
-import {Context} from "../index";
 import {FTP_URL_DOWNLOAD} from "../http";
 
 
 const NewsPageDetailed: FC = () => {
     const {id} = useParams()
     const [news, setNews] = useState<INews>({} as INews)
-    const {store} = useContext(Context)
 
     useEffect(() => {
         NewsService.getNewsById(Number(id)).then(res => {
@@ -17,7 +15,7 @@ const NewsPageDetailed: FC = () => {
         }).catch(err => {
             console.log(err)
         })
-    }, [])
+    })
 
     return (
         <div className={"w-screen flex flex-col items-center justify-center mb-10"}>

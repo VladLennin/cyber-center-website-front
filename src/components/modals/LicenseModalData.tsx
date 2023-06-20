@@ -1,7 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import Modal from "./Modal";
 import {ILicense} from "../../models/ILicense";
-import modal from "./Modal";
 import {IUser} from "../../models/IUser";
 import UserService from "../../service/UserService";
 

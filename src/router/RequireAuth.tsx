@@ -3,11 +3,8 @@ import {Context} from "../index";
 import {Navigate, Outlet, useLocation} from "react-router-dom";
 import {RoutesName} from "./RoutesName";
 
-interface AuthProps {
 
-}
-
-const RequireAuth: FC<AuthProps> = ({}) => {
+const RequireAuth: FC = () => {
     const {store} = useContext(Context)
     const location = useLocation()
     return (

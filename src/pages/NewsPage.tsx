@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Context} from "../index";
+import React, { useEffect, useState} from 'react';
 import {INews} from "../models/INews";
 import NewsService from "../service/NewsService";
 import NewsRow from "../components/news/NewsRow";
@@ -7,7 +6,6 @@ import PaginationControl from "../components/PaginationControl";
 
 const NewsPage = () => {
 
-    const {store} = useContext(Context)
     const [news, setNews] = useState<INews[]>([])
     const [page, setPage] = useState<number>(1)
     const [limit, setLimit] = useState<number>(8)

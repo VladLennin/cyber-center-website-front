@@ -4,7 +4,6 @@ import {Context} from "../../index";
 import {IToast} from "../../models/IToast";
 import {ToastTypes} from "../../models/enum/ToastTypes";
 import {FishingService} from "../../service/FishingService";
-import {IPz} from "../../models/IPz";
 
 const AddFishingExamplePage = () => {
 

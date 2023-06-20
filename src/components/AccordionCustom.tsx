@@ -15,30 +15,34 @@ interface AccordionProps {
 const AccordionCustom: FC<AccordionProps> = ({os, unit}) => {
     const [isOpen, setIsOpen] = useState(false);
 
+
     const toggleAccordion = () => {
         setIsOpen(!isOpen);
     };
 
     return (
-        <div className={"m-5 text-center proba-pro-light w-3/4"}>
-            <div className={"bg-gray-300 hover:cursor-pointer duration-200 rounded-md py-2"} onClick={toggleAccordion}>
-                <h3>{OS[os]}</h3>
+        <div className={"m-5 text-center proba-pro-light  w-full"}>
+            <div className={"bg-gray-300 hover:cursor-pointer duration-200 rounded-md py-2 w-full"}
+                 onClick={toggleAccordion}>
+                <h3 className={""}>{OS[os]}</h3>
             </div>
 
             {isOpen &&
-                <div className={" grid  grid-cols-8 gap-5 "}>
+                <div
+                    className={" grid  grid-cols-8 gap-5 duration-300"}>
                     {Object.values(Networks).map(network => (
                         <>
                             {(unit.pz.filter(p => p.network == network && p.os == os).length !== 0) &&
                                 <>
-                                    <div className={"flex col-span-2 px-2"}>
-                                        <p>{Networks[Number(network)]}</p>
+                                    <div className={"flex col-span-2"}>
+                                        <p className={"text-start"}>{Networks[Number(network)]}</p>
                                     </div>
-                                    <div className={"col-span-6 flex flex-col items-end"}>
+                                    <div className={"col-span-6 flex  flex-col items-end"}>
                                         {unit.pz.map(p => (
                                             <>
                                                 {(p.os == os && p.network == network) &&
-                                                    <div className={"flex text-blue-500 hover:text-blue-700 duration-200"}>
+                                                    <div
+                                                        className={"flex text-blue-500 hover:text-blue-700 duration-200"}>
                                                         <a href={FTP_URL_DOWNLOAD + p.src} download>{p.name}</a>
                                                         <br/>
                                                     </div>
@@ -51,11 +55,8 @@ const AccordionCustom: FC<AccordionProps> = ({os, unit}) => {
                             }
                         </>
                     ))}
-
-
                 </div>
             }
-
         </div>
     );
 };

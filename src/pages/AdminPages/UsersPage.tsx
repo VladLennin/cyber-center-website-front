@@ -1,11 +1,6 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {IUser} from "../../models/IUser";
+import React, { useEffect, useState} from 'react';
 import UserService from "../../service/UserService";
-import {log} from "util";
-import {Context} from "../../index";
 import UserDataRow from "../../components/UserDataRow";
-import {IRole} from "../../models/IRole";
-import NewsService from "../../service/NewsService";
 import PaginationControl from "../../components/PaginationControl";
 
 const UsersPage = () => {
@@ -14,9 +9,6 @@ const UsersPage = () => {
     const [page, setPage] = useState<number>(1)
     const [limit, setLimit] = useState<number>(8)
     const [countPages, setCountPages] = useState<number>(0)
-
-    const {store} = useContext(Context)
-
 
     useEffect(() => {
         UserService.getUsersPaginated(page, limit).then(res => {
@@ -34,6 +26,7 @@ const UsersPage = () => {
         })
     }, [page])
 
+
     useEffect(() => {
         UserService.getUsersPaginated(page, limit).then(res => {
             setUsers(res.data)
@@ -42,9 +35,7 @@ const UsersPage = () => {
             setCountPages(Math.ceil(res.data / limit))
             setPage(1)
         })
-
     }, [limit])
-
 
     const genTable = () => {
         let table = []

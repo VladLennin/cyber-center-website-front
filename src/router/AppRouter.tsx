@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {Context} from "../index";
-import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {RoutesName} from "./RoutesName";
 import RequireAuth from "./RequireAuth";
 import RegistrationPage from "../pages/RegistrationPage";
@@ -33,7 +33,6 @@ import LicensePage from "../pages/AdminPages/LicensePage";
 const AppRouter = () => {
 
     const {store} = useContext(Context)
-
 
     return (
         <>

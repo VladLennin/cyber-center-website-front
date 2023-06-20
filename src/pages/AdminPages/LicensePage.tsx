@@ -3,7 +3,6 @@ import {LicenseService} from "../../service/LicenseService";
 import {ILicense} from "../../models/ILicense";
 import LicenseRow from "../../components/LicenseRow";
 import PaginationControl from "../../components/PaginationControl";
-import NewsService from "../../service/NewsService";
 
 const LicensePage = () => {
 
@@ -38,7 +37,6 @@ const LicensePage = () => {
             setCountPages(Math.ceil(res.data / limit))
             setPage(1)
         })
-
     }, [limit])
 
     const genTable = () => {

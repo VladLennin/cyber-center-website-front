@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from 'react';
-import BackBtn from "../../components/BackBtn";
 import {IUnit} from "../../models/IUnit";
 import UnitService from "../../service/UnitService";
 import UnitAntPz from "../../components/pz/UnitAntPz";
@@ -26,9 +25,10 @@ const AntivirusesPZ = () => {
     return (
         <>
             <LicenseModal modal={modal} closeModal={closerModal} user={store.user}/>
-            <div className={"flex justify-start items-center min-h-[77vh] flex-col proba-pro-medium mb-10 mt-5 "}>
+            <div
+                className={"flex flex-col justify-center items-center min-h-[77vh] proba-pro-medium mb-10 mt-5 w-full"}>
                 <p className={"proba-pro-bold text-[6vh]"}> Комплексне антивірусне забезепечення</p>
-                <div className={"border rounded shadow p-10 "}>
+                <div className={"border rounded shadow p-10  max-w-[75vw]"}>
                     <div className={"flex justify-end mb-10 mr-10"}>
                         <button onClick={() => {
                             setModal(true)
@@ -42,8 +42,7 @@ const AntivirusesPZ = () => {
                 </div>
             </div>
         </>
-    )
-        ;
+    );
 };
 
 export default AntivirusesPZ;
