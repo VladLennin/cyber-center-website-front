@@ -29,5 +29,13 @@ export class PzService {
         }
     }
 
+    static async getAllUpdPz() {
+        try {
+            return await $api.get("/upd-pz")
+        } catch (e) {
+            throw e
+        }
+    }
+
 
 }

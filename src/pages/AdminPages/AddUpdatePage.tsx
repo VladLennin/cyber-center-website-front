@@ -79,12 +79,14 @@ const AddUpdatePage = () => {
                             <p>Вибрати існуючу</p>
                             <input onChange={() => {
                                 setProgramExist(true)
+                                setNewUpdPz({...newUpdPz, for:""})
                             }} name={"programExist"} className={"mr-5"} type="radio"/>
                         </div>
                         <div className={"flex gap-2 items-center"}>
                             <p>Створити</p>
                             <input checked={!programExist} onChange={() => {
                                 setProgramExist(false)
+                                setNewUpdPz({...newUpdPz, for:""})
                             }} name={"programExist"} type="radio"/>
                         </div>
 

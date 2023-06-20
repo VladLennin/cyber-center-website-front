@@ -1,4 +1,3 @@
-import {UpdPzTypes} from "./enum/UpdPzTypes";
 
 export interface IUpdPz {
     id: number;
