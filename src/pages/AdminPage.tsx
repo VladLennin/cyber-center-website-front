@@ -80,7 +80,8 @@ const AdminPage = () => {
                 <div className={" bg-[#F9F9F9] w-full grid grid-cols-1 px-[12vw] "}>
 
                     <div className={" rounded-xl grid grid-cols-2  gap-10 p-8 mb-10"}>
-                        <Link to={RoutesName.ADMIN_ADDITIONAL_PZ_PAGE}>
+                        {/*<Link to={RoutesName.ADMIN_ADDITIONAL_PZ_PAGE}>*/}
+                        <Link to={""}>
                             <div
                                 className={" hover:cursor-pointer rounded-xl bg-[#F9F9F9] hover:bg-white hover:scale-105 duration-200 hover:shadow p-5"}>
                                 <i className="text-5xl text-[#899771]  bi bi-qr-code-scan"></i>

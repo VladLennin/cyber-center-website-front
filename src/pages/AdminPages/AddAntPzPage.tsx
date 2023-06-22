@@ -59,7 +59,6 @@ const AddAntPzPage = () => {
 
     useEffect(() => {
         UnitService.getUnits().then(res => {
-            console.log(res)
             setUnits(res.data)
         }).catch(e => {
             console.log(e)
@@ -143,8 +142,7 @@ const AddAntPzPage = () => {
                 </div>
             </div>
         </>
-    )
-        ;
+    );
 };
 
 export default AddAntPzPage;

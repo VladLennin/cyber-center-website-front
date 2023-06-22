@@ -13,8 +13,8 @@ const AddNewsPage = () => {
 
     const [news, setNews] = useState<INews[]>([]);
     const [newNews, setNewNews] = useState<INews>({
-        date: new Date(),
-        name: "",
+        date_pub: new Date(),
+        title: "",
         content: "",
         img: new File([], "empty", {})
     } as INews)
@@ -61,7 +61,7 @@ const AddNewsPage = () => {
     };
 
     const addNews = () => {
-        if (newNews.content !== "" && newNews.name !== "" && newNews.img.name !== "empty") {
+        if (newNews.content !== "" && newNews.title !== "" && newNews.img.name !== "empty") {
             NewsService.createNews(newNews).then(res => {
                 store.addToast({content: "Новина додана", type: ToastTypes.Successful} as IToast)
                 news.push(res.data as INews)
@@ -69,8 +69,8 @@ const AddNewsPage = () => {
                 setNews(news)
 
                 setNewNews({
-                    date: new Date(),
-                    name: "",
+                    date_pub: new Date(),
+                    title: "",
                     content: "",
                     img: new File([], "empty", {})
                 } as INews)
@@ -96,8 +96,8 @@ const AddNewsPage = () => {
                     </p>
                     <div className={"grid grid-cols-2 proba-pro-medium border rounded p-4 mb-3 shadow-xl"}>
                         <p>Назва</p>
-                        <input value={newNews.name} onChange={(e) => {
-                            setNewNews({...newNews, name: e.target.value})
+                        <input value={newNews.title} onChange={(e) => {
+                            setNewNews({...newNews, title: e.target.value})
                         }
                         } className={"rounded p-2 mb-3"} type="text"/>
 

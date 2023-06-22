@@ -116,12 +116,14 @@ const Header = () => {
                                         <span>Оновлення прошивок і ОС</span>
                                     </button>
                                 </Link>
-                                <Link className={" hover:text-[#AF8742] duration-200"} to={RoutesName.ADDITIONAL_PZ}>
+                                <Link to={""} className={" hover:text-[#AF8742] duration-200"}>
                                     <button className={"flex mb-2 mr-2 "}>
                                         <img className={"mr-2"} src={programmingCode} alt=""/>
                                         <span>Додаткове ПЗ</span>
                                     </button>
                                 </Link>
+
+
                             </div>
                         </>
 
@@ -129,9 +131,9 @@ const Header = () => {
 
                 </div>
 
-                <Link className={" hover:text-[#AF8742] duration-200"} to={RoutesName.DOCUMENTS_PAGE}>
+                <Link className={" hover:text-[#AF8742] duration-200"} to={RoutesName.DEEP_STATE_MAP_PAGE}>
                     <button>
-                        Документація
+                        DeepStateMap
                     </button>
                 </Link>
 

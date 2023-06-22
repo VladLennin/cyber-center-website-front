@@ -1,13 +1,13 @@
 import React, {useContext} from "react";
 import {Context} from "../index";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import {RoutesName} from "./RoutesName";
 import RequireAuth from "./RequireAuth";
 import RegistrationPage from "../pages/RegistrationPage";
 import MainPage from "../pages/MainPage";
 import ContactsPage from "../pages/ContactsPage";
 import ProfilePage from "../pages/ProfilePage";
-import DocumentsPage from "../pages/DocumentsPage";
+import DeepStateMapPage from "../pages/DeepStateMapPage";
 import FishingPage from "../pages/FishingPage";
 import CyberCoursePage from "../pages/CyberCoursePage";
 import NewsPage from "../pages/NewsPage";
@@ -33,10 +33,15 @@ import LicensePage from "../pages/AdminPages/LicensePage";
 const AppRouter = () => {
 
     const {store} = useContext(Context)
-
+    const location = useLocation()
     return (
         <>
-            <BackBtn/>
+            {location.pathname == "/deepstatemap"
+                ?
+                <BackBtn additionalClass={"absolute"}/>
+                :
+                <BackBtn />
+            }
             <Routes>
                 {!store.isAuth ?
                     <Route path={RoutesName.REGISTRATION_PAGE} element={<RegistrationPage/>}/>
@@ -51,7 +56,7 @@ const AppRouter = () => {
                         <Route path={RoutesName.UNAUTHORIZED} element={<UnauthorizedPage/>}/>
                 }
 
-                <Route path={RoutesName.DOCUMENTS_PAGE} element={<DocumentsPage/>}/>
+                <Route path={RoutesName.DEEP_STATE_MAP_PAGE} element={<DeepStateMapPage/>}/>
                 <Route path={RoutesName.FISHING_PAGE} element={<FishingPage/>}/>
                 <Route path={RoutesName.CYBER_COURSE_PAGE} element={<CyberCoursePage/>}/>
                 <Route path={RoutesName.NEWS_PAGE} element={<NewsPage/>}/>

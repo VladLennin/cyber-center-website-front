@@ -26,7 +26,6 @@ const AddUpdatePage = () => {
     useEffect(() => {
         PzService.getAllPrograms().then(res => {
             setPrograms(res.data)
-            console.log(res.data)
         }).catch(e => {
             store.addToast({type: ToastTypes.Error, content: e.data.message} as IToast)
         })
