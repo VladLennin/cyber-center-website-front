@@ -15,6 +15,7 @@ const AddNewsPage = () => {
     const [newNews, setNewNews] = useState<INews>({
         date_pub: new Date(),
         title: "",
+        description: "",
         content: "",
         img: new File([], "empty", {})
     } as INews)
@@ -72,6 +73,7 @@ const AddNewsPage = () => {
                     date_pub: new Date(),
                     title: "",
                     content: "",
+                    description:"",
                     img: new File([], "empty", {})
                 } as INews)
                 handleClearFile()
@@ -101,6 +103,12 @@ const AddNewsPage = () => {
                         }
                         } className={"rounded p-2 mb-3"} type="text"/>
 
+                        <p>Опис</p>
+                        <textarea value={newNews.description} onChange={(e) => {
+                            setNewNews({...newNews, description: e.target.value})
+                        }
+                        } className={"mb-3 rounded"}/>
+
                         <p>Зміст</p>
                         <textarea value={newNews.content} onChange={(e) => {
                             setNewNews({...newNews, content: e.target.value})
@@ -108,7 +116,8 @@ const AddNewsPage = () => {
                         } className={"mb-3 rounded"}/>
 
                         <p>Фото</p>
-                        <input ref={fileInputRef} required onChange={e => handleFileChange(e)} className={"mb-4"} type="file"/>
+                        <input ref={fileInputRef} required onChange={e => handleFileChange(e)} className={"mb-4"}
+                               type="file"/>
 
                         <div className={"col-span-2  flex justify-center mb-5 "}>
                             <img className={(newNews.img.name !== "empty" ? "  border-2  " : "  ") + "w-1/6"}

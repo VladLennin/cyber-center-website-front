@@ -1,0 +1,21 @@
+.no-arrows {
+    -moz-appearance: textfield; /* Remove default arrows on Firefox */
+    -webkit-appearance: none; /* Remove default arrows on WebKit browsers */
+    appearance: none; /* Remove default arrows on other browsers */
+
+/* Hide the inner and outer spin buttons */
+&::-webkit-inner-spin-button,
+&::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+ }
+}
+
+.no-border {
+  border: none !important;
+  outline: none !important;
+}
+
+.no-border:focus {
+  outline: none !important; /* Remove the outline when the input is focused */
+}

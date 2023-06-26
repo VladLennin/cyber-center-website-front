@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 import {RoutesName} from "../../router/RoutesName";
 import {FTP_URL_DOWNLOAD} from "../../http";
 import ReactHtmlParser from 'html-react-parser';
+// @ts-ignore
+import tsnLogo from "../../assets/tsnLogo.png"
+// @ts-ignore
+import cyberLogo from "../../assets/headerLogo.svg"
 
 interface NewsProps {
     news: INews
@@ -40,9 +44,21 @@ const NewsCard: FC<NewsProps> = ({news}) => {
                     {ReactHtmlParser(news.content)}
                 </div>
 
-                <div className={"proba-pro-light text-[#909090]"}>
-                    {news.date_pub.split("T")[1].split(":")[0]}:{news.date_pub.split("T")[1].split(":")[1]} {news.date_pub.split("T")[0]}
+                <div className={"flex justify-between mb-4 items-center"}>
+                    <div className={"proba-pro-light text-[#909090]"}>
+                        {news?.date_pub.split("T")[1].split(":")[0]}:{news?.date_pub.split("T")[1].split(":")[1]} {news?.date_pub.split("T")[0]}
+                    </div>
+                    {
+                        news.img_href.includes("https") ?
+                            <img className={"h-5"} src={tsnLogo} alt=""/>
+                            :
+                            <div className={"bg-[#232323] px-2 py-1 rounded"}>
+                                <img className={"h-8"} src={cyberLogo} alt=""/>
+
+                            </div>
+                    }
                 </div>
+
                 <div className={"flex justify-end"}>
                     <Link className={"hover:text-[#AF8742] duration-100"} to={RoutesName.NEWS_PAGE + "/" + news.id}>
                         Детальніше

@@ -1,0 +1,16 @@
+.detailed-news a {
+    font-family: "Proba Pro Bold";
+    color: #444c37;
+}
+.detailed-news a:hover{
+    color:#2e7fff;
+    transition-duration: 200ms;
+}
+
+.detailed-news p{
+    margin-top:15px;
+}
+
+
+
+

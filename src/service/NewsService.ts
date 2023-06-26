@@ -13,7 +13,8 @@ export default class NewsService {
         return await $api.post('/admin/news', {
             ...news,
             img: undefined,
-            imgHref: "news_" + news.date_pub.toISOString() + "." + await FtpService.getFileExtension(news.img.name)
+            img_href: "news_" + news.date_pub.toISOString() + "." + await FtpService.getFileExtension(news.img.name),
+            created_at: new Date()
         })
     }
 
@@ -29,7 +30,11 @@ export default class NewsService {
         return await $api.post('/news', {count})
     }
 
-    static async getNewsById(id:number){
+    static async getNewsById(id: number) {
         return await $api.get(`/news?id=${id}`)
+    }
+
+    static async searchNews(searchString: string, all:boolean) {
+        return await $api.post('/news/search', {searchString: searchString, all:all})
     }
 }

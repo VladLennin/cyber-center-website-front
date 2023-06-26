@@ -7,5 +7,6 @@ export interface INews {
     content: any;
     date_pub: any;
     description:string;
+    created_at:Date;
 
 }
