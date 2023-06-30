@@ -143,9 +143,9 @@ const Header = () => {
                     </button>
                 </Link>
 
-                <Link className={" hover:text-[#AF8742] duration-200"} to={RoutesName.CYBER_COURSE_PAGE}>
+                <Link className={" hover:text-[#AF8742] duration-200"} to={RoutesName.COURSES_PAGE}>
                     <button>
-                        Курс з кібергігієни
+                        Навчальні курси
                     </button>
                 </Link>
 

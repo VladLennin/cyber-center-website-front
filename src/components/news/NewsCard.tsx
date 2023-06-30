@@ -8,6 +8,7 @@ import ReactHtmlParser from 'html-react-parser';
 import tsnLogo from "../../assets/tsnLogo.png"
 // @ts-ignore
 import cyberLogo from "../../assets/headerLogo.svg"
+import "../../style/news-page.css"
 
 interface NewsProps {
     news: INews
@@ -20,7 +21,7 @@ const NewsCard: FC<NewsProps> = ({news}) => {
         <>
 
             <div
-                className={"text-sm max-w-[24vw]   p-2 rounded-xl  m-2"}>
+                className={"text-sm max-w-[24vw] news-card p-2 rounded-xl  m-2"}>
                 <div className={"flex justify-center"}>
                     {
                         news.img_href.includes("https")

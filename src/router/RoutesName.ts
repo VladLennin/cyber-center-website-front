@@ -10,7 +10,7 @@ export enum RoutesName {
     DEEP_STATE_MAP_PAGE = "/deepstatemap",
     FISHING_PAGE = "/fishing",
     FISHING_CARD_PAGE = "/fishing/card",
-    CYBER_COURSE_PAGE = "/cyber-course",
+    COURSES_PAGE = "/course",
     NEWS_PAGE = "/news",
     CONTACTS_PAGE = "/contacts",
     FAQ = "/faq",
@@ -25,6 +25,7 @@ export enum RoutesName {
     ADMIN_UPDATES_PAGE="/admin/updates",
     ADMIN_ADDITIONAL_PZ_PAGE="/admin/additional",
     ADMIN_FISHING_PAGE="/admin/fishing",
-    ADMIN_LICENSE_KEYS = "/admin/licenses"
+    ADMIN_LICENSE_KEYS = "/admin/licenses",
+    ADMIN_CREATE_COURSE = "/course/create"
 
 }

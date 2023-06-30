@@ -12,5 +12,12 @@
 }
 
 
+.news-card a{
+    font-family: "Proba Pro Bold";
+    color: #444c37;
+}
 
-
+.news-card a:hover{
+    color:#2e7fff;
+    transition-duration: 200ms;
+}

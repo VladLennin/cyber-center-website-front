@@ -1,12 +1,12 @@
 import React, {FC, useState} from 'react';
-import {TestModel} from "../models/TestModel";
+import {ICourse} from "../models/ICourse";
 import QuestionCard from "./cards/QuestionCard";
 import {Link, useNavigate} from "react-router-dom";
 import {RoutesName} from "../router/RoutesName";
 import {createHash} from "crypto";
 
 interface TestProps {
-    test: TestModel;
+    test: ICourse;
 }
 
 interface AnswersProps {
@@ -54,7 +54,7 @@ const TestComponent: FC<TestProps> = ({test}) => {
 
             ))}
 
-            <div className={"flex mt-5 justify-center"}>
+            <div className={"flex mt-10 justify-center "}>
                 {test.questions.map((question, index) => (
                     <button key={index}
                             onClick={() => {

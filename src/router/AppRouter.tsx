@@ -9,7 +9,7 @@ import ContactsPage from "../pages/ContactsPage";
 import ProfilePage from "../pages/ProfilePage";
 import DeepStateMapPage from "../pages/DeepStateMapPage";
 import FishingPage from "../pages/FishingPage";
-import CyberCoursePage from "../pages/CyberCoursePage";
+import AllCoursesPage from "../pages/AllCoursesPage";
 import NewsPage from "../pages/NewsPage";
 import RequireRole from "./RequireRole";
 import {Roles} from "../models/enum/Roles";
@@ -29,6 +29,8 @@ import FishingCardPage from "../pages/FishingCardPage";
 import AddNewsPage from "../pages/AdminPages/AddNewsPage";
 import NewsPageDetailed from "../pages/NewsPageDetailed";
 import LicensePage from "../pages/AdminPages/LicensePage";
+import AddCoursePage from "../pages/AdminPages/AddCoursePage";
+import CoursePage from "../pages/CoursePage";
 
 const AppRouter = () => {
 
@@ -36,12 +38,11 @@ const AppRouter = () => {
     const location = useLocation()
     return (
         <>
-            {location.pathname == "/deepstatemap"
-                ?
-                <BackBtn additionalClass={"absolute"}/>
-                :
-                <BackBtn />
+            {!(location.pathname === "/deepstatemap")
+                &&
+                <BackBtn/>
             }
+
             <Routes>
                 {!store.isAuth ?
                     <Route path={RoutesName.REGISTRATION_PAGE} element={<RegistrationPage/>}/>
@@ -58,14 +59,14 @@ const AppRouter = () => {
 
                 <Route path={RoutesName.DEEP_STATE_MAP_PAGE} element={<DeepStateMapPage/>}/>
                 <Route path={RoutesName.FISHING_PAGE} element={<FishingPage/>}/>
-                <Route path={RoutesName.CYBER_COURSE_PAGE} element={<CyberCoursePage/>}/>
+                <Route path={RoutesName.COURSES_PAGE} element={<AllCoursesPage/>}/>
                 <Route path={RoutesName.NEWS_PAGE} element={<NewsPage/>}/>
                 <Route path={RoutesName.NEWS_PAGE + "/:id"} element={<NewsPageDetailed/>}/>
                 <Route path={RoutesName.CONTACTS_PAGE} element={<ContactsPage/>}/>
                 <Route path={RoutesName.TEST_RESULT_PAGE} element={<TestResultPage/>}/>
                 <Route path={RoutesName.MAIN_PAGE} element={<MainPage/>}/>
                 <Route path={RoutesName.FISHING_CARD_PAGE + "/:id"} element={<FishingCardPage/>}/>
-
+                <Route path={RoutesName.COURSES_PAGE + "/:id"} element={<CoursePage/>}/>
 
                 <Route element={<RequireRole allowedRole={Roles.ADMIN.toString()}/>}>
                     <Route path={RoutesName.ADMIN_PAGE} element={<AdminPage/>}/>
@@ -76,6 +77,8 @@ const AppRouter = () => {
                     <Route path={RoutesName.ADMIN_ADDITIONAL_PZ_PAGE} element={<AddAdditionalPzPage/>}/>
                     <Route path={RoutesName.ADMIN_FISHING_PAGE} element={<AddFishingExamplePage/>}/>
                     <Route path={RoutesName.ADMIN_LICENSE_KEYS} element={<LicensePage/>}/>
+                    {/* eslint-disable-next-line react/jsx-no-undef */}
+                    <Route path={RoutesName.ADMIN_CREATE_COURSE} element={<AddCoursePage/>}/>
                 </Route>
 
                 <Route element={<RequireAuth/>}>

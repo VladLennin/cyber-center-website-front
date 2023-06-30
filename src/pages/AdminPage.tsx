@@ -124,9 +124,21 @@ const AdminPage = () => {
                                 </div>
                             </div>
                         </Link>
+
+                        <Link to={RoutesName.ADMIN_CREATE_COURSE}>
+                            <div
+                                className={"hover:cursor-pointer rounded-xl bg-[#FFFF] hover:bg-[#F9F9F9] hover:scale-105 duration-200 hover:shadow p-5"}>
+                                <i className="text-5xl text-[#899771] bi bi-journal-bookmark"></i>
+                                <div className={"mt-3"}>
+                                    <p className={"proba-pro-bold"}>Створити новий курс</p>
+                                    <p>
+                                        створіть новий курс для того щоб користувачі могли оцінити свої знання у галузі
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
-
             </div>
         </>
     );

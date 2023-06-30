@@ -154,7 +154,7 @@ const MainPage: FC = () => {
                             <i className="bi bi-arrow-right ml-3 text-lg text-[#AF8742]"></i>
                         </Link>
 
-                        <Link to={RoutesName.CYBER_COURSE_PAGE}
+                        <Link to={RoutesName.COURSES_PAGE}
                               className={"rounded-[150px] hover:scale-105 duration-200 border-black border-2  px-10  py-2 flex justify-between items-center proba-pro-medium"}>
                             <div>Тест</div>
                             <i className="bi bi-arrow-right ml-3 text-lg "></i>
