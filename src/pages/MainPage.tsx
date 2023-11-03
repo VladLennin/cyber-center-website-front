@@ -27,7 +27,8 @@ const MainPage: FC = () => {
 
     useEffect(() => {
       NewsService.getNews().then(res=>{
-          setNews(res.data.slice(0,4))
+          // setNews(res.data.slice(0,4))
+          console.log(res.data)
       })
     }, [])
 
