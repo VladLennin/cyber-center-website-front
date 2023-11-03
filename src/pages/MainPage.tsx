@@ -167,7 +167,7 @@ const MainPage: FC = () => {
                     <p>Новини</p>
                 </div>
                 <div className={"grid grid-cols-4 gap-20"}>
-                    {news.map((n, index) => (<NewsCard key={index} news={n}/>))}
+                    {news?.map((n, index) => (<NewsCard key={index} news={n}/>))}
                 </div>
                 <div className={"flex justify-end proba-pro-medium mr-5 mb-10"}>
                     <Link to={RoutesName.NEWS_PAGE} className={"hover:text-[#AF8742] duration-200"}>
