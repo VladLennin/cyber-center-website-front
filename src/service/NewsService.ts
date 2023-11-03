@@ -27,7 +27,7 @@ export default class NewsService {
     }
 
     static async getNews() {
-        return console.log($api.get<INews[]>('/news'))
+        return $api.get<INews[]>('/news')
     }
 
     static async getNewsById(id: number) {

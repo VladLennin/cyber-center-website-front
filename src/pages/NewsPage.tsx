@@ -15,11 +15,14 @@ const NewsPage = () => {
     const [limit, setLimit] = useState<number>(8)
     let [countPages, setCountPages] = useState<number>(0)
     const [searchString, setSearchString] = useState("")
+    const [isLoading, setIsLoading] = useState(true)
     let countInRow = 4
 
     useEffect(() => {
         NewsService.getNewsPaginated(page, limit).then(res => {
             setNews(res.data)
+        }).then(() => {
+            setIsLoading(false)
         })
         NewsService.getCountNews().then(res => {
             setCountPages(Math.ceil(res.data / limit))
@@ -28,16 +31,22 @@ const NewsPage = () => {
     }, [])
 
     useEffect(() => {
+        setIsLoading(true)
         NewsService.getNewsPaginated(page, limit).then(res => {
             setNews(res.data)
+        }).then(() => {
+            setIsLoading(false)
         })
         setSearchString("")
 
     }, [page])
 
     useEffect(() => {
+        setIsLoading(true)
         NewsService.getNewsPaginated(page, limit).then(res => {
             setNews(res.data)
+        }).then(() => {
+            setIsLoading(false)
         })
         NewsService.getCountNews().then(res => {
             setCountPages(Math.ceil(res.data / limit))
@@ -140,35 +149,35 @@ const NewsPage = () => {
                                 Пошук
                             </button>
                         </div>
-
-                        <div
-                            className={(searchedNews.length === 0 ? " h-[0px] opacity-0 " : " h-auto px-8 py-2 bg-gray-300 background-opacity ") + "  duration-[600ms]  w-3/4 mt-3  absolute  rounded-lg"}>
-                            {searchedNews.map(news => (
-                                <Link to={RoutesName.NEWS_PAGE + `/${news.id}`}>
-                                    <div
-                                        className={"opacity-100 border-b-2 border-b-gray-500 mt-4 flex p-2 items-center"}>
-                                        {
-                                            news.img_href.includes("https")
-                                                ?
-                                                <img className={"h-[75px] mr-4 rounded"}
-                                                     src={news.img_href}
-                                                     alt="qwe"/>
-                                                :
-                                                <img className={"h-[75px] mr-4 rounded"}
-                                                     src={FTP_URL_DOWNLOAD + news.img_href}
-                                                     alt="qwe"/>
-                                        }
-                                        <div>
-                                            <p>{ReactHtmlParser(news.title)}</p>
-                                            <div className={"proba-pro-light text-sm text-right"}>
-                                                {news?.date_pub.split("T")[1].split(":")[0]}:{news?.date_pub.split("T")[1].split(":")[1]} {news?.date_pub.split("T")[0]}
+                        {isLoading ? <div>Loading...</div> :
+                            <div
+                                className={(searchedNews.length === 0 ? " h-[0px] opacity-0 " : " h-auto px-8 py-2 bg-gray-300 background-opacity ") + "  duration-[600ms]  w-3/4 mt-3  absolute  rounded-lg"}>
+                                {searchedNews.map(news => (
+                                    <Link to={RoutesName.NEWS_PAGE + `/${news.id}`}>
+                                        <div
+                                            className={"opacity-100 border-b-2 border-b-gray-500 mt-4 flex p-2 items-center"}>
+                                            {
+                                                news.img_href.includes("https")
+                                                    ?
+                                                    <img className={"h-[75px] mr-4 rounded"}
+                                                         src={news.img_href}
+                                                         alt="qwe"/>
+                                                    :
+                                                    <img className={"h-[75px] mr-4 rounded"}
+                                                         src={FTP_URL_DOWNLOAD + news.img_href}
+                                                         alt="qwe"/>
+                                            }
+                                            <div>
+                                                <p>{ReactHtmlParser(news.title)}</p>
+                                                <div className={"proba-pro-light text-sm text-right"}>
+                                                    {news?.date_pub.split("T")[1].split(":")[0]}:{news?.date_pub.split("T")[1].split(":")[1]} {news?.date_pub.split("T")[0]}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-
+                                    </Link>
+                                ))}
+                            </div>
+                        }
                     </div>
                 </div>
                 <hr className={"mt-5 mx-10"}/>
