@@ -11,4 +11,4 @@ FROM nginx:1.23.3
 COPY --from=build_stage /app/build/ /usr/share/nginx/html
 ## Copy the default nginx.conf to work with react routes
 COPY  default_nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+EXPOSE 15000

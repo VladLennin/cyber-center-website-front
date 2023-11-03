@@ -2,9 +2,9 @@ import axios from 'axios'
 import {AuthResponse} from "../models/responce/Authresponce";
 
 // export const API_URL = "https://10.5.113.112:3001/api"
-export const API_URL = "http://10.5.113.113:3001/api"
+export const API_URL = "http://46.219.127.6:15001/api"
 
-export const FTP_URL = "http://10.5.113.113:3005/ftp"
+export const FTP_URL = "http://10.5.113.113:15005/ftp"
 
 export const FTP_URL_DOWNLOAD = FTP_URL + "/download/"
 export const FTP_URL_UPLOAD = FTP_URL + "/upload/"
