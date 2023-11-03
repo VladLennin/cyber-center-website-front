@@ -2,7 +2,7 @@ import axios from 'axios'
 import {AuthResponse} from "../models/responce/Authresponce";
 
 // export const API_URL = "https://10.5.113.112:3001/api"
-export const API_URL = process.env.REACT_APP_HOST +":"+ process.env.REACT_HOST_PORT
+export const API_URL = process.env.REACT_APP_HOST +":"+ process.env.REACT_HOST_PORT + "/api/"
 
 export const FTP_URL = process.env.REACT_APP_FTP+":"+ process.env.REACT_FTP_PORT
 
