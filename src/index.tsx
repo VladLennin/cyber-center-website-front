@@ -8,7 +8,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./style/input-number.scss"
 import 'flowbite';
 
-
 interface State {
     store: Store;
 }

@@ -25,9 +25,9 @@ const AddNewsPage = () => {
     const {store} = useContext(Context)
 
     useEffect(() => {
-        NewsService.getNews(5).then(res => {
-            setNews(res.data)
-        })
+
+
+
     }, [])
 
 

@@ -26,11 +26,9 @@ const MainPage: FC = () => {
     const [news, setNews] = useState<INews[]>([])
 
     useEffect(() => {
-        NewsService.getNews(4).then(res => {
-            setNews(res.data)
-        }).catch(err => {
-            console.log(err)
-        })
+      NewsService.getNews().then(res=>{
+          setNews(res.data.slice(0,4))
+      })
     }, [])
 
     return (

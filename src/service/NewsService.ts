@@ -19,22 +19,22 @@ export default class NewsService {
     }
 
     static async getNewsPaginated(page: number, limit: number) {
-        return await $api.post('/news/paginated', {page, limit})
+        return $api.post('/news/paginated', {page, limit})
     }
 
     static async getCountNews() {
-        return await $api.get('/news/count')
+        return $api.get('/news/count')
     }
 
-    static async getNews(count: number) {
-        return await $api.post('/news', {count})
+    static async getNews() {
+        return $api.get<INews[]>('/news')
     }
 
     static async getNewsById(id: number) {
-        return await $api.get(`/news?id=${id}`)
+        return $api.get(`/news?id=${id}`)
     }
 
-    static async searchNews(searchString: string, all:boolean) {
-        return await $api.post('/news/search', {searchString: searchString, all:all})
+    static async searchNews(searchString: string, all: boolean) {
+        return $api.post('/news/search', {searchString: searchString, all: all})
     }
 }

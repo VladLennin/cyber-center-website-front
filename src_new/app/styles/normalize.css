@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "UAF Sans";
+    line-height: normal;
+    font-style: normal;
+
+    ::-webkit-scrollbar {
+        width:0;
+    }
+
+}
+
+body, html, #root {
+    width: 100%;
+    height: 100%;
+}

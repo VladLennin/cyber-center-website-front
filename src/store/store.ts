@@ -11,7 +11,6 @@ import {Roles} from "../models/enum/Roles";
 
 export default class Store {
     user = {} as IUser
-
     userRoles: string[] = []
     isAuth = false;
     isLoading = false;
