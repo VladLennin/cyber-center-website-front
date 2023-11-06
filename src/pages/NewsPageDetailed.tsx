@@ -24,7 +24,7 @@ const NewsPageDetailed: FC = () => {
         }).catch(err => {
             console.log(err)
         })
-    })
+    }, [])
 
 
     return (
