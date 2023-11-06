@@ -31,7 +31,7 @@ export default class NewsService {
     }
 
     static async getNewsById(id: number) {
-        return $api.get(`/news?id=${id}`)
+        return $api.get<INews>(`/news/${id}`)
     }
 
     static async searchNews(searchString: string, all: boolean) {
